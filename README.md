@@ -1,8 +1,8 @@
 WebPrint
 ======
-WebPrint is a simple order system for RFID web printing build with ASP.NET MVC, NHibernate, Autofac, log4net, etc.
-You can use this system to place order and print tags with bartender.
-And it's also an architectural foundation for building modern web applications.
+* WebPrint is a simple order system for RFID web printing build with ASP.NET MVC, NHibernate, Autofac, log4net, etc.
+* You can use this system to place order and print tags with bartender.
+* And it's also an architectural foundation for building modern web applications.
 
 
 ### Features:
@@ -56,8 +56,8 @@ This project takes advantages of FNHMVC(https://github.com/LeafDuan/FNHMVC/) and
 
 --------------------------------------------------------------------------------------------------
 ### Roadmap
-Improving DataBaseService to common
-NHibernate 4.0
-NOPI 2.0, support xlsx
+* Improving DataBaseService to common
+* NHibernate 4.0
+* NOPI 2.0, support xlsx
 
 
