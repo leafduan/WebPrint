@@ -1,0 +1,12 @@
+﻿<p><span id="sec">5</span>秒后将回到首页</p>
+<script language="javascript" type="text/javascript">
+    var tick = 5;
+    setInterval(function () {
+        if (tick == 1) {
+            window.location.href = "/";
+            return;
+        }
+        var ui = document.getElementById("sec");
+        ui.innerText = (tick--) - 1;
+    }, 1000);
+</script>

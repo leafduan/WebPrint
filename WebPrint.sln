@@ -1,0 +1,108 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Web.Forms", "WebPrint.Web.Forms\WebPrint.Web.Forms.csproj", "{11171CE3-6C41-4542-B1CA-F8279AB76E8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Model", "WebPrint.Model\WebPrint.Model.csproj", "{682DE556-3A35-41B6-940F-29E8C430FEC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Service", "WebPrint.Service\WebPrint.Service.csproj", "{D38E155E-A396-4517-892B-A0D702C4D2E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Web.Core", "WebPrint.Web.Core\WebPrint.Web.Core.csproj", "{2C697608-4892-41F9-BC6E-0F8EED00779F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseService", "DataBaseService\DataBaseService.csproj", "{569B5B35-948B-4939-BB99-450D3D52F793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Office", "WebPrint.Office\WebPrint.Office.csproj", "{62B4372A-0FC1-4D7A-9A5E-6C4AE0EA908F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.BarTender", "WebPrint.Bartender\WebPrint.BarTender.csproj", "{AD122425-0F50-460D-A954-C6D3EF48A4C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Framework", "WebPrint.Framework\WebPrint.Framework.csproj", "{FCAC9184-EF23-4177-B78F-7EFB835346F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B5929DA5-F0B2-4B3A-B200-73257361AF7F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\repositories.config = packages\repositories.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schema", "Schema", "{12E259AD-D1C2-4CA1-B950-9090DA1725EC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\log4net.2.0.2\log4net.xsd = packages\log4net.2.0.2\log4net.xsd
+		packages\NHibernate.3.3.3.4001\nhibernate-configuration.xsd = packages\NHibernate.3.3.3.4001\nhibernate-configuration.xsd
+		packages\NHibernate.3.3.3.4001\nhibernate-mapping.xsd = packages\NHibernate.3.3.3.4001\nhibernate-mapping.xsd
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Data", "WebPrint.Data\WebPrint.Data.csproj", "{88CB4689-AF82-4798-A642-9E974FCA2D5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Test", "WebPrint.Test\WebPrint.Test.csproj", "{BE2C9458-2E94-407F-A71C-74094ECB1929}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5833CC0-E69F-4AA3-B00E-1B8FA7CE89EF}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+		WebPrintStandard.vsmdi = WebPrintStandard.vsmdi
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Web.Mvc", "WebPrint.Web.Mvc\WebPrint.Web.Mvc.csproj", "{9B224C4D-E8AF-4FB0-A47E-A38A383BA3F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Logging", "WebPrint.Logging\WebPrint.Logging.csproj", "{AC2C479E-0201-4AA4-8A7D-B120E4991183}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = WebPrintStandard.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11171CE3-6C41-4542-B1CA-F8279AB76E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11171CE3-6C41-4542-B1CA-F8279AB76E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11171CE3-6C41-4542-B1CA-F8279AB76E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11171CE3-6C41-4542-B1CA-F8279AB76E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682DE556-3A35-41B6-940F-29E8C430FEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682DE556-3A35-41B6-940F-29E8C430FEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682DE556-3A35-41B6-940F-29E8C430FEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682DE556-3A35-41B6-940F-29E8C430FEC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38E155E-A396-4517-892B-A0D702C4D2E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38E155E-A396-4517-892B-A0D702C4D2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38E155E-A396-4517-892B-A0D702C4D2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38E155E-A396-4517-892B-A0D702C4D2E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C697608-4892-41F9-BC6E-0F8EED00779F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C697608-4892-41F9-BC6E-0F8EED00779F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C697608-4892-41F9-BC6E-0F8EED00779F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C697608-4892-41F9-BC6E-0F8EED00779F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{569B5B35-948B-4939-BB99-450D3D52F793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{569B5B35-948B-4939-BB99-450D3D52F793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{569B5B35-948B-4939-BB99-450D3D52F793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{569B5B35-948B-4939-BB99-450D3D52F793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B4372A-0FC1-4D7A-9A5E-6C4AE0EA908F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B4372A-0FC1-4D7A-9A5E-6C4AE0EA908F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B4372A-0FC1-4D7A-9A5E-6C4AE0EA908F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B4372A-0FC1-4D7A-9A5E-6C4AE0EA908F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD122425-0F50-460D-A954-C6D3EF48A4C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD122425-0F50-460D-A954-C6D3EF48A4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD122425-0F50-460D-A954-C6D3EF48A4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD122425-0F50-460D-A954-C6D3EF48A4C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCAC9184-EF23-4177-B78F-7EFB835346F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCAC9184-EF23-4177-B78F-7EFB835346F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCAC9184-EF23-4177-B78F-7EFB835346F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCAC9184-EF23-4177-B78F-7EFB835346F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88CB4689-AF82-4798-A642-9E974FCA2D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88CB4689-AF82-4798-A642-9E974FCA2D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88CB4689-AF82-4798-A642-9E974FCA2D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88CB4689-AF82-4798-A642-9E974FCA2D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE2C9458-2E94-407F-A71C-74094ECB1929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE2C9458-2E94-407F-A71C-74094ECB1929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE2C9458-2E94-407F-A71C-74094ECB1929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE2C9458-2E94-407F-A71C-74094ECB1929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B224C4D-E8AF-4FB0-A47E-A38A383BA3F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B224C4D-E8AF-4FB0-A47E-A38A383BA3F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B224C4D-E8AF-4FB0-A47E-A38A383BA3F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B224C4D-E8AF-4FB0-A47E-A38A383BA3F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2C479E-0201-4AA4-8A7D-B120E4991183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2C479E-0201-4AA4-8A7D-B120E4991183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2C479E-0201-4AA4-8A7D-B120E4991183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2C479E-0201-4AA4-8A7D-B120E4991183}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

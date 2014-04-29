@@ -1,0 +1,25 @@
+﻿@model IList<OrderDetail>
+@using WebPrint.Web.Mvc.Helper
+@using WebPrint.Framework;
+
+<div>
+    <ul>
+        @Model.Repeat(@<li>
+                           @item.Color &nbsp;
+                           @item.Size &nbsp;
+                           @item.Style &nbsp;
+                           @item.Qty &nbsp;
+                           @item.Status.GetDescription() &nbsp;
+                           @item.Upc &nbsp;
+                           @item.Format.DisplayName &nbsp;
+                       </li>)
+    </ul>
+</div>
+
+@using System.Linq.Expressions
+
+@functions
+{
+}
+
+

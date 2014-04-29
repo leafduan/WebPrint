@@ -1,0 +1,9 @@
+﻿@model Order
+@{
+    ViewBag.Title = "Detail";
+}
+<h2>RFID Order Detail</h2>
+@Html.Partial("OrderShipBillView", Model.ShipBill)
+@{
+    Html.RenderPartial("OrderDetailsView", Model.Details);
+}

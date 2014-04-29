@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WebPrint.Model" assembly="WebPrint.Model">
+	<class name="HanesUpc" table="hanes_upc">
+		<id name="Id" column="id" type="integer">
+      <generator class="sequence" >
+        <param name="sequence">hanes_upc_id_seq</param>
+      </generator>
+		</id>
+    <!-- 有主键 就不需要此属性, 否则引发 dehydrating property value for WebPrint.Model.HanesUpc.Id 错误 -->
+    <!--<property name="Id" column="id"/>--> 
+		<property name="CreateTime" column="create_time"/>
+		<property name="CreatorId" column="create_by_id"/>
+		<property name="UpdateTime" column="update_time"/>
+    <property name="UpdaterId" column="update_by_id" />
+    <property name="Active" column="active" />
+    <property name="UPC" column="upc"/>
+    <property name="LastQty" column="last_qty"/>
+	</class>	
+</hibernate-mapping>

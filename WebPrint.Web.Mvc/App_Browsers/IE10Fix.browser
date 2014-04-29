@@ -1,0 +1,18 @@
+﻿<!--
+可在 <windir>\Microsoft.NET\Framework\<ver>\CONFIG\Browsers 中找到现有的浏览器定义
+-->
+
+<!-- 
+http://support.microsoft.com/kb/2600088
+ASP.NET cannot recognize Windows Internet Explorer 10 that has the following user agent string:
+Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)
+-->
+<browsers>
+  <browser refID="Default">
+    <capabilities>
+      <!-- To avoid wrong detections of e.g. IE10 -->
+      <capability name="cookies" value="true" />
+      <!--<capability name="ecmascriptversion" value="3.0" />-->
+    </capabilities>
+  </browser>
+</browsers>

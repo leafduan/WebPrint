@@ -1,0 +1,74 @@
+﻿@using WebPrint.Model
+@using WebPrint.Web.Mvc.Helper
+@using WebPrint.Framework;
+@model IEnumerable<ViewOrder>
+@{
+    ViewBag.Title = "Check";
+}
+@functions{
+
+    private string GetOrderLink(OrderType type, string jno)
+    {
+        var link = "/order/{0}/{1}";
+        if (type == OrderType.CatalogPo)
+        {
+            return link.Formatting("graphic", jno);
+        }
+
+        return link.Formatting("rfid", jno);
+    }
+
+}
+<h2>
+    Check</h2>
+<div>
+    @using (Html.BeginForm("Check", "Order", FormMethod.Get))
+    {
+        <fieldset>
+            <legend>Search condition</legend>
+            <div class="editor-label">
+                JOBNO
+            </div>
+            <div class="editor-field">
+                <input type="text" name="jno" id="jno" value="@ViewBag.Jno" />
+            </div>
+            <div class="editor-label">
+                PO#
+            </div>
+            <div class="editor-field">
+                <input type="text" name="po" id="po" value="@ViewBag.Po"/>
+            </div>
+            <div class="editor-label">
+                Type
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("type", typeof(OrderType).ToSelectList((string)ViewBag.Type), "All")
+            </div>
+            <div class="editor-label">
+                Status
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("status", typeof(OrderStatus).ToSelectList((string)ViewBag.Status), "All")
+            </div>
+            <p>
+                <input type="submit" value="Search" />
+            </p>
+        </fieldset>
+    }
+</div>
+<div>
+    <ul>
+        @Model.Repeat(@<li><a href="@GetOrderLink(item.Type, item.JobNo)" target="_blank">@item.JobNo</a>
+            &nbsp;
+            @item.CreatedTime.ToString("yyyy-MM-dd HH:mm:ss") &nbsp;
+            @item.CompletionDate &nbsp;
+            @item.PoNo &nbsp;
+            @item.Remark &nbsp;
+            @item.Username &nbsp;
+            @item.PrintShopName &nbsp;
+            @item.Type.GetDescription() &nbsp;
+            @item.Status.GetDescription() &nbsp;
+            @item.DetailsCount &nbsp;
+            @item.TotQty &nbsp; </li>)
+    </ul>
+</div>

@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<DBMODEL Version="1.8" TYPE="PostgreSQL">
+
+<MODELSETTINGS MDDVERSION="1.9.1 (build 926)" ModelProject="Web Print System" ModelName="WebPrintStandard" ModelCompany="r-pac sz" ModelAuthor="leaf" ModelCopyright="2013" ModelVersion="2.9" ModelVersionAI="1" ModelSaveScriptsWithVersion="1" ModelCreated="2013-08-13 15:20:48" ModelUpdated="2014-04-28 16:18:30" Description="prefix \awp\a means web printing(system)" Annotation="" ZoomFac="100.00" XPos="0" YPos="0" PrintLink="" GenSettings="object GenSettings1: TGenSettings\n  TextCharCase = tccMixed\n  ModelCheck = True\n  DropIfExists = True\n  ISQL = False\n  DBOptions = [dbgoBeginScript, dbgoEndScript]\n  ViewOptions = [viewgoCreate, viewgoCreateRule]\n  SPOptions = [spgoCreate]\n  TableOptions = [tblgoCreate, tblgoDrop, tblgoBeginScript, tblgoEndScript, tblgoComment, tblgoCreatePK, tblgoCreateFK, tblgoCreateIndex, tblgoCreateRule, tblgoCreateTrigger, tblgoCreateCHECK, tblgoFieldDefault]\n  OwnerOptions = [owngoSchema, owngoTable, owngoView, owngoSP, owngoSequence, owngoUDT]\n  ACLOptions = [aclgoSchema, aclgoTable, aclgoView, aclgoSP, aclgoSequence]\n  ModifyOptions = [mgoKeepTbls, mgoBackupTbls, mgoTraceRenaming]\n  RoleCreate = False\n  RoleWhenCreate = rocrInScript\n  SQLTypeNames = False\nend\n" DisplaySettings="object DisplaySettings1: TDisplaySettings\n  ObjectsDisplay = [edoColumns, edoInhColumns, edoIndices, edoConstraints, edoTriggers, edoRules, edoColTypes, edoDomains, edoColIndexUsage, edoColNull, edoFKs, rdoRefName, spdoParameters, spdoResult, spdoParamTypes, spdoParamKind, vdoAttributes, vdoTargets, vdoRules]\n  Color = clWhite\n  ShowIcons = True\n  SnapGrid = True\n  DisplaySnap = True\n  SnapSize = 10\n  ShowPages = True\n  EntityFillColor = clWhite\n  EntityLineColor = clNavy\n  SPFillColor = 13499135\n  SPLineColor = clNavy\n  ViewFillColor = 3329434\n  ViewLineColor = clNavy\n  RefNotation = 0\n  RefColor = clNavy\n  RefLabelColor = clWhite\n  MinimapShapesStyle = mmssFillAndBorder\n  MinimapVisibleAreaStyle = mmvasBitmapShading\n  MinimapBackColor = clWhite\nend\n" DefaultDelete="3" DefaultUpdate="3" DefaultDataType="23" DefaultSchemaID="0" NamePatterns="Table=Table_,View=View_,SP=Procedure_,Reference=Ref_%FROMTABLE%_to_%TOTABLE%,FKColumn=%TOTABLE%_%TOCOLUMN%" QueryDelimiter=";" DBQuoteCharacter="\A" EncloseNames="1" HPageCount="5" VPageCount="5" />
+
+<DATABASE Name="WebPrintStandard" CharacterSet="DEFAULT" Collate="" CType="" Tablespace="" Owner="" Template="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="0" />
+
+<STAMPS>
+<STAMP ID="1022" ModelName="ModelProps_03" XPos="1420" YPos="20" BackColor="16777215" LineColor="0" />
+
+</STAMPS>
+
+<ROLES>
+</ROLES>
+
+<SCHEMAS>
+<SCHEMA ID="0" Name="public" Owner="" Generate="0" Comments="" System="1" ACL=""></SCHEMA>
+</SCHEMAS>
+
+<SEQUENCES>
+</SEQUENCES>
+
+<DOMAINS>
+</DOMAINS>
+
+<COMPOSITES>
+<COMPOSITE ID="10001" Name="wp_user" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1002">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10002" Name="wp_group" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1013">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10003" Name="wp_permission" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1021">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10004" Name="wp_group_permission" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1031">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10005" Name="wp_user_group" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1057">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10006" Name="wp_order" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1090">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10007" Name="wp_print_shop" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1153">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10010" Name="wp_order_detail" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1346">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10011" Name="wp_format" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1598">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10012" Name="wp_item" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1753">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10013" Name="wp_upc" SchemaName="public" OwnerName="" Comments="" MasterTableOID="1942">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10014" Name="wp_print_history" SchemaName="public" OwnerName="" Comments="" MasterTableOID="2021">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10015" Name="wp_ship_bill" SchemaName="public" OwnerName="" Comments="" MasterTableOID="2144">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10016" Name="wp_user_address_book" SchemaName="public" OwnerName="" Comments="" MasterTableOID="2160">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10017" Name="wp_order_ship_bill" SchemaName="public" OwnerName="" Comments="" MasterTableOID="2191">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10018" Name="wp_graphic_tag_item_detail" SchemaName="public" OwnerName="" Comments="" MasterTableOID="2612">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10019" Name="wp_size_color" SchemaName="public" OwnerName="" Comments="" MasterTableOID="2702">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10022" Name="wp_graphic_tag_category" SchemaName="public" OwnerName="" Comments="" MasterTableOID="3525">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+<COMPOSITE ID="10024" Name="wp_graphic_tag_item_detail" SchemaName="public" OwnerName="" Comments="" MasterTableOID="3598">
+	<COLUMNS>
+	</COLUMNS>
+</COMPOSITE>
+</COMPOSITES>
+
+<SCALARS>
+</SCALARS>
+
+<ENUMS>
+</ENUMS>
+
+<TABLESPACES>
+</TABLESPACES>
+
+<METADATA>
+<ENTITIES>
+<ENTITY ID="1002" Name="wp_user" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1490" YPos="770" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777200" LineColor="8388608" CharacterSet="" Collate="" Comments="\7528\6237\4FE1\606F\8868" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="5" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="24" Name="print_shop_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="0" QuoteDefault="0" Comments="\751F\4EA7\5DE5\5382\6807\8BC6, \5BA2\6237\4E0B\5355\5230\4E0D\540C\5DE5\5382\751F\4EA7"></COLUMN>
+		<COLUMN ID="6" Name="user_name" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\7528\6237\767B\5F55\540D\79F0"></COLUMN>
+		<COLUMN ID="20" Name="password" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\767B\5F55\5BC6\7801"></COLUMN>
+		<COLUMN ID="21" Name="display_name" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\5C55\793A\540D\79F0, \5982\4F9B\5E94\5546\540D\79F0"></COLUMN>
+		<COLUMN ID="22" Name="email" Pos="5" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\90AE\4EF6\5217\8868, \53EF\4EE5\591A\4E2A\90AE\4EF6\5730\5740, | \5206\5F00"></COLUMN>
+		<COLUMN ID="23" Name="vendor_code" Pos="6" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\8BA2\5355\4F9B\5E94\5546\6807\8BC6 vendor code"></COLUMN>
+		<COLUMN ID="25" Name="active" Pos="7" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\6807\8BC6\7528\6237\662F\5426\53EF\7528 0\662F 1\5426"></COLUMN>
+		<COLUMN ID="26" Name="created_time" Pos="8" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments="\521B\5EFA\65F6\95F4"></COLUMN>
+		<COLUMN ID="27" Name="modified_time" Pos="9" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments="\6700\540E\4FEE\6539\65F6\95F4"></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="28" />
+		<REFERENCE_BEGIN ID="36" />
+		<REFERENCE_BEGIN ID="38" />
+		<REFERENCE_BEGIN ID="57" />
+	</REFERENCES_BEGIN>
+	<REFERENCES_END>
+		<REFERENCE_END ID="35" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="2" Name="wp_user_id_pkey" Kind="2" Expression="" ReferenceIndex="4250" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="5"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="7" Name="wp_user_name_key" Kind="1" Expression="" ReferenceIndex="3267" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="6"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="3267" Name="wp_user_name_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="7" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="user_name"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="4250" Name="wp_user_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="2" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="1013" Name="wp_group" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1490" YPos="480" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777200" LineColor="8388608" CharacterSet="" Collate="" Comments="\7528\6237\7EC4" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="32" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="33" Name="name" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\7EC4\540D"></COLUMN>
+		<COLUMN ID="34" Name="display_name" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\5C55\793A\540D"></COLUMN>
+		<COLUMN ID="35" Name="created_time" Pos="3" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments="\521B\5EFA\65F6\95F4"></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="24" />
+		<REFERENCE_BEGIN ID="27" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="11" Name="wp_group_pkey" Kind="2" Expression="" ReferenceIndex="4237" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="32"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="12" Name="wp_group_name_key" Kind="1" Expression="" ReferenceIndex="2987" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="33"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="2987" Name="wp_group_name_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="12" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="name"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="4237" Name="wp_group_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="11" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="1021" Name="wp_permission" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1490" YPos="190" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777200" LineColor="8388608" CharacterSet="" Collate="" Comments="\6743\9650\8868" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="44" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="45" Name="name" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\6743\9650\540D"></COLUMN>
+		<COLUMN ID="46" Name="display_name" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\5C55\793A\540D"></COLUMN>
+		<COLUMN ID="47" Name="created_time" Pos="3" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments="\521B\5EFA\65F6\95F4"></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="23" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="16" Name="wp_permission_pkey" Kind="2" Expression="" ReferenceIndex="4233" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="44"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="17" Name="wp_permission_name_key" Kind="1" Expression="" ReferenceIndex="3023" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="45"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="3023" Name="wp_permission_name_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="17" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="name"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="4233" Name="wp_permission_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="16" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="1031" Name="wp_group_permission" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1450" YPos="340" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777200" LineColor="8388608" CharacterSet="" Collate="" Comments="\7528\6237\7EC4\4E0E\6743\9650\7684\5173\7CFB\8868" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="51" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="52" Name="group_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="53" Name="permission_id" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="23" />
+		<REFERENCE_END ID="24" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="20" Name="wp_group_permission_pkey" Kind="2" Expression="" ReferenceIndex="3005" FillFactor="" Comments="False" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="51"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="21" Name="wp_group_permission_group_id_permission_id_key" Kind="1" Expression="" ReferenceIndex="4236" FillFactor="" Comments="False" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="52,53"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="3005" Name="wp_group_permission_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="20" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="4236" Name="wp_group_permission_group_id_permission_id_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="21" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="group_id,permission_id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="1057" Name="wp_user_group" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1510" YPos="630" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777200" LineColor="8388608" CharacterSet="" Collate="" Comments="\7528\6237\4E0E\7528\6237\7EC4\7684\5173\7CFB\8868" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="57" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="58" Name="user_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="59" Name="group_id" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="27" />
+		<REFERENCE_END ID="28" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="26" Name="wp_user_group_id_pkey" Kind="2" Expression="" ReferenceIndex="2956" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="57"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="2956" Name="wp_user_group_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="26" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="1090" Name="wp_order" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1550" YPos="1130" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="14150650" LineColor="8388608" CharacterSet="" Collate="" Comments="\8BA2\5355\8868" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="60" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\8BA2\5355\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="65" Name="print_shop_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="0" QuoteDefault="0" Comments="\751F\4EA7\5DE5\5382\7F16\53F7"></COLUMN>
+		<COLUMN ID="3619" Name="order_ship_bill_id" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="0" QuoteDefault="0" Comments="\5173\8054\8BA2\5355\53F7 \5982RFID\8BA2\5355\540C\65F6Graphic Order \5982Wacoal"></COLUMN>
+		<COLUMN ID="273" Name="associated_order_id" Pos="3" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\5173\8054\8BA2\5355\53F7 \5982RFID\8BA2\5355\540C\65F6Graphic Order \5982Wacoal"></COLUMN>
+		<COLUMN ID="61" Name="job_no" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\751F\4EA7\4EFB\52A1\53F7"></COLUMN>
+		<COLUMN ID="62" Name="po_no" Pos="5" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\8BA2\5355\7F16\53F7"></COLUMN>
+		<COLUMN ID="63" Name="type" Pos="6" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\8BA2\5355\7C7B\578B"></COLUMN>
+		<COLUMN ID="64" Name="vendor_code" Pos="7" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\4F9B\5E94\5546\7F16\7801"></COLUMN>
+		<COLUMN ID="66" Name="remark" Pos="8" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\63CF\8FF0\8BA2\5355 \5982\7C7B\578B"></COLUMN>
+		<COLUMN ID="67" Name="wastage" Pos="9" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\635F\8017\6BD4\4F8B"></COLUMN>
+		<COLUMN ID="68" Name="production" Pos="10" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\662F\5426\751F\4EA7EPC \5F00\59CB\751F\4EA7"></COLUMN>
+		<COLUMN ID="69" Name="completion_date" Pos="11" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="77" Name="status" Pos="12" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\72B6\6001 \5982Printing"></COLUMN>
+		<COLUMN ID="143" Name="so_no" Pos="13" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\5982rpac so"></COLUMN>
+		<COLUMN ID="78" Name="active" Pos="14" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\662F\5426\5220\9664 0\5426 1\662F"></COLUMN>
+		<COLUMN ID="79" Name="created_id" Pos="15" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="0" QuoteDefault="0" Comments="\521B\5EFA\4EBA"></COLUMN>
+		<COLUMN ID="80" Name="created_time" Pos="16" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments="\521B\5EFA\65F6\95F4"></COLUMN>
+		<COLUMN ID="81" Name="modified_id" Pos="17" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="0" QuoteDefault="0" Comments="\4FEE\6539\8BE5\4EBA"></COLUMN>
+		<COLUMN ID="82" Name="modified_time" Pos="18" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments="\6700\540E\4FEE\6539\65F6\95F4"></COLUMN>
+		<COLUMN ID="83" Name="file_name" Pos="19" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\6765\81EA\8BA2\5355\6587\4EF6\540D"></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="44" />
+	</REFERENCES_BEGIN>
+	<REFERENCES_END>
+		<REFERENCE_END ID="36" />
+		<REFERENCE_END ID="38" />
+		<REFERENCE_END ID="39" />
+		<REFERENCE_END ID="3611" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="29" Name="wp_order_id_pkey" Kind="2" Expression="" ReferenceIndex="4170" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="60"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="30" Name="wp_order_job_number_key" Kind="1" Expression="" ReferenceIndex="4254" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="61"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="3610" Name="wp_order_order_ship_bill_id_key" Kind="1" Expression="" ReferenceIndex="4255" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="3619"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="4170" Name="wp_order_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="29" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="4254" Name="wp_order_job_number_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="30" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="job_no"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="4255" Name="wp_order_order_ship_bill_id_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="3610" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="order_ship_bill_id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="1153" Name="wp_print_shop" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1840" YPos="620" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16777200" LineColor="8388608" CharacterSet="" Collate="" Comments="\751F\4EA7\5DE5\5382\8868" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="88" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="89" Name="code" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\7F16\53F7"></COLUMN>
+		<COLUMN ID="90" Name="display_name" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\5C55\793A\540D"></COLUMN>
+		<COLUMN ID="91" Name="email_list" Pos="3" Datatype="1043" Type="varchar" Width="500" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="notification emials list"></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="35" />
+		<REFERENCE_BEGIN ID="39" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="33" Name="wp_print_shop_id_pkey" Kind="2" Expression="" ReferenceIndex="4247" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="88"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="34" Name="wp_print_shop_code_key" Kind="1" Expression="" ReferenceIndex="2969" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="89"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="2969" Name="wp_print_shop_code_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="34" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="code"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="4247" Name="wp_print_shop_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="33" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="1346" Name="wp_order_detail" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1850" YPos="1390" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="14150650" LineColor="8388608" CharacterSet="" Collate="" Comments="\8BA2\5355\660E\7EC6\8868" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="108" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="109" Name="order_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments="\8BA2\5355Id"></COLUMN>
+		<COLUMN ID="125" Name="format_id" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments="\5173\8054\7684 label format"></COLUMN>
+		<COLUMN ID="110" Name="original_qty" Pos="3" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\539F\59CB\6570\91CF \6587\4EF6\6570\636E\4E2D\6570\636E"></COLUMN>
+		<COLUMN ID="111" Name="qty" Pos="4" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\5904\7406 original qty \4E4B\540E\7684\6570\91CF, \5982\539F\59CB\6570\91CF\5C0F\4E8E100\5219qty\4E3A100, \5C31\662Fqty to ship"></COLUMN>
+		<COLUMN ID="112" Name="spare_qty" Pos="5" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\635F\8017\6570\91CF"></COLUMN>
+		<COLUMN ID="113" Name="remain_qty" Pos="6" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\8FD8\5269\6253\5370\6570\91CF \521D\59CB\6570\91CF remain_qty = qty + spare_qty"></COLUMN>
+		<COLUMN ID="114" Name="epc_serial_begin" Pos="7" Datatype="20" Type="int8" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="epc \5F00\59CB\5E8F\5217\53F7"></COLUMN>
+		<COLUMN ID="115" Name="epc_serial_end" Pos="8" Datatype="20" Type="int8" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="epc \7ED3\675F\5E8F\5217\53F7"></COLUMN>
+		<COLUMN ID="126" Name="epc_code_begin" Pos="9" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\5F00\59CBepc"></COLUMN>
+		<COLUMN ID="127" Name="epc_code_end" Pos="10" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\7ED3\675Fepc"></COLUMN>
+		<COLUMN ID="128" Name="print_begin_epc" Pos="11" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\5F00\59CB\6253\5370epc"></COLUMN>
+		<COLUMN ID="129" Name="status" Pos="12" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="detail line \751F\4EA7\72B6\6001 \5982New"></COLUMN>
+		<COLUMN ID="3620" Name="line_no" Pos="13" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="1" QuoteDefault="0" Comments="wp_item\5173\8054 \4F5C\53C2\8003\7528"></COLUMN>
+		<COLUMN ID="130" Name="remark" Pos="14" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\63CF\8FF0"></COLUMN>
+		<COLUMN ID="132" Name="upc" Pos="15" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="309" Name="gtin" Pos="16" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="133" Name="po_no" Pos="17" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="134" Name="style" Pos="18" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="135" Name="style_desc" Pos="19" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="136" Name="color" Pos="20" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="137" Name="color_desc" Pos="21" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="138" Name="size" Pos="22" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="139" Name="size_desc" Pos="23" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="308" Name="vendor" Pos="24" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="140" Name="vendor_code" Pos="25" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="141" Name="logo" Pos="26" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3610" Name="unit" Pos="27" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="174" Name="price" Pos="28" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="325" Name="production_type" Pos="29" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3618" Name="desc" Pos="30" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3611" Name="graphic_category" Pos="31" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="318" Name="graphic_name" Pos="32" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="319" Name="graphic_code" Pos="33" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="322" Name="graphic_preview_image" Pos="34" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3613" Name="graphic_surcharge" Pos="35" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3614" Name="graphic_lead_time" Pos="36" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3615" Name="graphic_tier" Pos="37" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3616" Name="graphic_uom" Pos="38" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="131" Name="active" Pos="39" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\8868\793A\662F\5426\53EF\7528 0\53EF\7528 1\4E0D\53EF\7528"></COLUMN>
+		<COLUMN ID="145" Name="created_id" Pos="40" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="144" Name="created_time" Pos="41" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="147" Name="modified_id" Pos="42" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="146" Name="modified_time" Pos="43" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="142" Name="file_name" Pos="44" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="304" Name="item_id" Pos="45" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="wp_item\5173\8054 \4F5C\53C2\8003\7528"></COLUMN>
+		<COLUMN ID="305" Name="graphic_tag_item_detail_id" Pos="46" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\517C\5BB9graphic tag order"></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="3609" />
+	</REFERENCES_BEGIN>
+	<REFERENCES_END>
+		<REFERENCE_END ID="46" />
+		<REFERENCE_END ID="44" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="43" Name="wp_order_detail_id_pkey" Kind="2" Expression="" ReferenceIndex="4212" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="108"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="4212" Name="wp_order_detail_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="43" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="1598" Name="wp_format" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1140" YPos="1690" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="9234160" LineColor="8388608" CharacterSet="" Collate="" Comments="label format \8868" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="148" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="149" Name="category_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="\4FDD\7559"></COLUMN>
+		<COLUMN ID="150" Name="name" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\5B9E\9645\6587\4EF6\540D"></COLUMN>
+		<COLUMN ID="151" Name="display_name" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\5C55\793A\540D"></COLUMN>
+		<COLUMN ID="152" Name="path" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="labelformat\8DEF\5F84"></COLUMN>
+		<COLUMN ID="153" Name="preview_image" Pos="5" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\9884\89C8\56FE\7247\8DEF\5F84"></COLUMN>
+		<COLUMN ID="154" Name="code" Pos="6" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\914D\5339 \6807\8BB0"></COLUMN>
+		<COLUMN ID="155" Name="type" Pos="7" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="RFID or Non-RFID"></COLUMN>
+		<COLUMN ID="156" Name="created_id" Pos="8" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="157" Name="created_time" Pos="9" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="158" Name="modified_id" Pos="10" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="159" Name="modified_time" Pos="11" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="46" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="45" Name="wp_format_id_pkey" Kind="2" Expression="" ReferenceIndex="3074" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="148"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="3074" Name="wp_format_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="45" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="1753" Name="wp_item" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="870" YPos="2180" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16443110" LineColor="8388608" CharacterSet="" Collate="" Comments="item master \8868" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="161" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="162" Name="po_no" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="163" Name="style" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="164" Name="style_desc" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="165" Name="color" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="166" Name="color_desc" Pos="5" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="167" Name="size" Pos="6" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="168" Name="size_desc" Pos="7" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="169" Name="vendor" Pos="8" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="170" Name="vendor_code" Pos="9" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="171" Name="upc" Pos="10" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="172" Name="gtin" Pos="11" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="173" Name="price" Pos="12" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="181" Name="qty" Pos="13" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="307" Name="logo" Pos="14" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="182" Name="active" Pos="15" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="0\53EF\7528 1\4E0D\53EF\7528"></COLUMN>
+		<COLUMN ID="183" Name="type" Pos="16" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="184" Name="created_id" Pos="17" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="185" Name="created_time" Pos="18" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="187" Name="modified_id" Pos="19" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="188" Name="modified_time" Pos="20" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="186" Name="file_name" Pos="21" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\6765\81EA\6587\4EF6\7684\540D\79F0"></COLUMN>
+	</COLUMNS>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="48" Name="wp_item_id_pkey" Kind="2" Expression="" ReferenceIndex="0" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="161"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+</ENTITY>
+
+<ENTITY ID="1942" Name="wp_upc" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1110" YPos="2180" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="16443110" LineColor="8388608" CharacterSet="" Collate="" Comments="upc last_qty \4FE1\606F" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="189" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="190" Name="upc" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="191" Name="gtin" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="upc \53EF\80FD\4F4D\6570\4E0D\4E00 gtin\4F4D\6570\4E00\5B9A \5FC5\987B\552F\4E00"></COLUMN>
+		<COLUMN ID="192" Name="last_serial_number" Pos="3" Datatype="20" Type="int8" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="gtin(upc) \6700\540E\4E00\4E2A\5DF2\7528\5E8F\5217\53F7"></COLUMN>
+		<COLUMN ID="193" Name="active" Pos="4" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="0\53EF\7528 1\4E0D\53EF\7528"></COLUMN>
+		<COLUMN ID="194" Name="created_id" Pos="5" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="195" Name="created_time" Pos="6" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="196" Name="modified_id" Pos="7" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="197" Name="modified_time" Pos="8" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="49" Name="wp_upc_id_pkey" Kind="2" Expression="" ReferenceIndex="2004" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="189"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="50" Name="wp_upc_gtin_key" Kind="1" Expression="" ReferenceIndex="2005" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="191"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="2004" Name="wp_upc_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="49" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="2005" Name="wp_upc_gtin_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="50" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="gtin"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="2021" Name="wp_print_history" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="2220" YPos="1140" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="14204888" LineColor="8388608" CharacterSet="" Collate="" Comments="\6253\5370\5386\53F2\8BB0\5F55" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="198" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="199" Name="order_detail_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments="\5BF9\5E94order_detail id"></COLUMN>
+		<COLUMN ID="200" Name="qty" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="201" Name="epc_code_begin" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="202" Name="epc_code_end" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="203" Name="client_ip" Pos="5" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="204" Name="printer_name" Pos="6" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="205" Name="format_name" Pos="7" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="206" Name="upc" Pos="8" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="214" Name="message" Pos="9" Datatype="1043" Type="varchar" Width="500" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="215" Name="active" Pos="10" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="0\53EF\7528 1\4E0D\53EF\7528"></COLUMN>
+		<COLUMN ID="216" Name="type" Pos="11" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="\7C7B\578B print or reprint"></COLUMN>
+		<COLUMN ID="217" Name="created_id" Pos="12" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="218" Name="created_time" Pos="13" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="3609" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="51" Name="wp_print_history_id_pkey" Kind="2" Expression="" ReferenceIndex="3853" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="198"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="3853" Name="wp_print_history_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="51" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="2144" Name="wp_ship_bill" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="990" YPos="200" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="9221330" LineColor="8388608" CharacterSet="" Collate="" Comments="ship bill address info" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="219" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="220" Name="company" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="240" Name="attention" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="221" Name="address" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="222" Name="address2" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="223" Name="address3" Pos="5" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="224" Name="city_town" Pos="6" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="225" Name="state" Pos="7" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="226" Name="zip_code" Pos="8" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="227" Name="country" Pos="9" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="228" Name="phone" Pos="10" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="229" Name="fax" Pos="11" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="230" Name="email" Pos="12" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="231" Name="remark" Pos="13" Datatype="1043" Type="varchar" Width="500" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="232" Name="type" Pos="14" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="0" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="Ship or Bill"></COLUMN>
+		<COLUMN ID="233" Name="active" Pos="15" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="0\53EF\7528 1\4E0D\53EF\7528"></COLUMN>
+		<COLUMN ID="234" Name="created_id" Pos="16" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="235" Name="created_time" Pos="17" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="241" Name="modified_id" Pos="18" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="242" Name="modified_time" Pos="19" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="55" />
+		<REFERENCE_BEGIN ID="56" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="53" Name="wp_ship_bill_id_pkey" Kind="2" Expression="" ReferenceIndex="3143" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="219"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="3143" Name="wp_ship_bill_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="53" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="2160" Name="wp_user_address_book" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="940" YPos="830" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="9221330" LineColor="8388608" CharacterSet="" Collate="" Comments="\7528\6237 ship bill \5730\5740\7C3F" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="236" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments="\81EA\589E\957FId"></COLUMN>
+		<COLUMN ID="237" Name="user_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="238" Name="ship_id" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="239" Name="bill_id" Pos="3" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="55" />
+		<REFERENCE_END ID="56" />
+		<REFERENCE_END ID="57" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="54" Name="wp_user_address_book_id_pkey" Kind="2" Expression="" ReferenceIndex="2912" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="236"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="2912" Name="wp_user_address_book_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="54" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="2191" Name="wp_order_ship_bill" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1020" YPos="1080" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="9419919" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="243" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="244" Name="ship_company" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="245" Name="ship_attention" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="246" Name="ship_address" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="247" Name="ship_address2" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="248" Name="ship_address3" Pos="5" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="249" Name="ship_city_town" Pos="6" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="250" Name="ship_state" Pos="7" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="251" Name="ship_zip_code" Pos="8" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="252" Name="ship_country" Pos="9" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="253" Name="ship_phone" Pos="10" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="254" Name="ship_fax" Pos="11" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="255" Name="ship_email" Pos="12" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="256" Name="ship_remark" Pos="13" Datatype="1043" Type="varchar" Width="500" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="257" Name="bill_company" Pos="14" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="258" Name="bill_attention" Pos="15" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="259" Name="bill_address" Pos="16" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="260" Name="bill_address2" Pos="17" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="261" Name="bill_address3" Pos="18" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="262" Name="bill_city_town" Pos="19" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="263" Name="bill_state" Pos="20" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="264" Name="bill_zip_code" Pos="21" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="265" Name="bill_country" Pos="22" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="266" Name="bill_phone" Pos="23" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="267" Name="bill_fax" Pos="24" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="268" Name="bill_email" Pos="25" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="269" Name="bill_remark" Pos="26" Datatype="1043" Type="varchar" Width="500" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="270" Name="created_time" Pos="27" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="3611" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="58" Name="wp_order_ship_bill_id_pkey" Kind="2" Expression="" ReferenceIndex="4144" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="243"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="4144" Name="wp_order_ship_bill_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="58" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="2612" Name="wp_graphic_tag_item" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1460" YPos="2260" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="2139610" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="277" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3537" Name="category_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="278" Name="name" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="279" Name="code" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3538" Name="size" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="282" Name="preview_image" Pos="5" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="283" Name="desc" Pos="6" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3539" Name="surcharge" Pos="7" Datatype="1043" Type="varchar" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a0\a" QuoteDefault="0" Comments="below moq surcharge"></COLUMN>
+		<COLUMN ID="3540" Name="lead_time" Pos="8" Datatype="1043" Type="varchar" Width="255" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3541" Name="sort_no" Pos="9" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="1" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="306" Name="active" Pos="10" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments="0\53EF\7528 1\4E0D\53EF\7528"></COLUMN>
+		<COLUMN ID="286" Name="created_time" Pos="11" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_BEGIN>
+		<REFERENCE_BEGIN ID="3606" />
+	</REFERENCES_BEGIN>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="62" Name="wp_graphic_tag_item_id_pkey" Kind="2" Expression="" ReferenceIndex="3743" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="277"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="63" Name="wp_graphic_tag_code_key" Kind="1" Expression="" ReferenceIndex="4251" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="279"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="3743" Name="wp_graphic_tag_item_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="62" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+		<INDEX ID="4251" Name="wp_graphic_tag_code_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="63" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="code"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="2702" Name="wp_size_color" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1850" YPos="2250" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="14524637" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="287" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="295" Name="size" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="296" Name="pms_color" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="297" Name="version" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="298" Name="red" Pos="4" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="299" Name="green" Pos="5" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="300" Name="blue" Pos="6" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="301" Name="size_type" Pos="7" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="302" Name="sort_no" Pos="8" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="1" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="303" Name="created_time" Pos="9" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="64" Name="wp_size_color_id_pkey" Kind="2" Expression="" ReferenceIndex="0" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="287"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+		<CONSTRAINT ID="65" Name="wp_size_color_size_key" Kind="1" Expression="" ReferenceIndex="2809" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="295"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="2809" Name="wp_size_color_size_key_idx_ui" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="65" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="size"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="3525" Name="wp_graphic_tag_category" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1460" YPos="2070" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="2139610" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="3526" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3527" Name="name" Pos="1" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3528" Name="display_name" Pos="2" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3529" Name="active" Pos="3" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3536" Name="created_time" Pos="4" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="3539" Name="wp_graphic_tag_category_id_pkey" Kind="2" Expression="" ReferenceIndex="3996" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="3526"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="3996" Name="wp_graphic_tag_category_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="3539" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+<ENTITY ID="3598" Name="wp_graphic_tag_item_detail" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" TablespaceID="0" XPos="1460" YPos="2630" Temporary="0" Unlogged="0" OnCommit="" Inherits="" FillColor="2139610" LineColor="8388608" CharacterSet="" Collate="" Comments="" Description="" Annotation="" BeginScript="" EndScript="" Generate="1" ACL="" StorageParams="" >
+	<COLUMNS>
+		<COLUMN ID="3599" Name="id" Pos="0" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="1" Collation="" PrimaryKey="1" IsFKey="0" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3604" Name="item_id" Pos="1" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="1" DefaultValue="" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3605" Name="tier_qty" Pos="2" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="1" QuoteDefault="0" Comments="tier level qty"></COLUMN>
+		<COLUMN ID="3606" Name="price" Pos="3" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a0\a" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3607" Name="uom_name" Pos="4" Datatype="1043" Type="varchar" Width="50" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="\a\a" QuoteDefault="0" Comments="name of units of measurement"></COLUMN>
+		<COLUMN ID="3608" Name="uom_qty" Pos="5" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="1" QuoteDefault="0" Comments="qty of units of measurement"></COLUMN>
+		<COLUMN ID="3609" Name="round_qty" Pos="6" Datatype="23" Type="int4" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="1" QuoteDefault="0" Comments="qty to round"></COLUMN>
+		<COLUMN ID="3602" Name="active" Pos="7" Datatype="21" Type="int2" Width="0" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="0" QuoteDefault="0" Comments=""></COLUMN>
+		<COLUMN ID="3603" Name="created_time" Pos="8" Datatype="1114" Type="timestamp" Width="-1" Prec="0" NotNull="1" AutoInc="0" Collation="" PrimaryKey="0" IsFKey="0" DefaultValue="now()" QuoteDefault="0" Comments=""></COLUMN>
+	</COLUMNS>
+	<REFERENCES_END>
+		<REFERENCE_END ID="3606" />
+	</REFERENCES_END>
+	<CONSTRAINTS>
+		<CONSTRAINT ID="3605" Name="wp_graphic_tag_item_detail_id_pkey" Kind="2" Expression="" ReferenceIndex="3994" FillFactor="" Comments="" TablespaceID="0" Deferrable="0" Method="0">
+			<CONSTRAINTCOLUMNS COMMATEXT="3599"></CONSTRAINTCOLUMNS>
+			<CONSTRAINTOPERATORS COMMATEXT=""></CONSTRAINTOPERATORS>
+		</CONSTRAINT>
+	</CONSTRAINTS>
+	<INDEXES>
+		<INDEX ID="3994" Name="wp_graphic_tag_item_detail_id_pkey_idx_pk" Unique="1" Method="0" Predicate="" TablespaceID="0" ReferenceConstraint="3605" StorageParams="" Comments="">
+			<INDEXCOLUMNS COMMATEXT="id"></INDEXCOLUMNS>
+			<INDEXSORTS COMMATEXT=""></INDEXSORTS>
+			<INDEXNULLS COMMATEXT=""></INDEXNULLS>
+		</INDEX>
+	</INDEXES>
+</ENTITY>
+
+</ENTITIES>
+
+<REFERENCES>
+<REFERENCE ID="23" Name="wp_group_permission_permission_id_fkey" SOURCE="1021" DESTINATION="1031" FKIDS="44=53\n" Direction="0" RefColor="8388608" RefLabelColor="16777200" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="16" />
+
+<REFERENCE ID="24" Name="wp_group_permission_group_id_fkey" SOURCE="1013" DESTINATION="1031" FKIDS="32=52\n" Direction="0" RefColor="8388608" RefLabelColor="16777200" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="11" />
+
+<REFERENCE ID="27" Name="wp_user_group_group_id_fkey" SOURCE="1013" DESTINATION="1057" FKIDS="32=59\n" Direction="0" RefColor="8388608" RefLabelColor="16777200" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="11" />
+
+<REFERENCE ID="28" Name="wp_user_group_user_id_fkey" SOURCE="1002" DESTINATION="1057" FKIDS="5=58\n" Direction="0" RefColor="8388608" RefLabelColor="16777200" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="2" />
+
+<REFERENCE ID="35" Name="wp_user_print_shop_id_fkey" SOURCE="1153" DESTINATION="1002" FKIDS="88=24\n" Direction="0" RefColor="8388608" RefLabelColor="16777200" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="33" />
+
+<REFERENCE ID="36" Name="wp_order_created_id_fkey" SOURCE="1002" DESTINATION="1090" FKIDS="5=79\n" Direction="0" RefColor="8388608" RefLabelColor="14150650" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="2" />
+
+<REFERENCE ID="38" Name="wp_order_modified_id_fkey" SOURCE="1002" DESTINATION="1090" FKIDS="5=81\n" Direction="0" RefColor="8388608" RefLabelColor="14150650" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="2" />
+
+<REFERENCE ID="39" Name="wp_order_print_shop_id_fkey" SOURCE="1153" DESTINATION="1090" FKIDS="88=65\n" Direction="0" RefColor="8388608" RefLabelColor="14150650" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="33" />
+
+<REFERENCE ID="46" Name="wp_order_detail_format_id_fkey" SOURCE="1598" DESTINATION="1346" FKIDS="148=125\n" Direction="0" RefColor="8388608" RefLabelColor="14150650" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="45" />
+
+<REFERENCE ID="55" Name="wp_user_address_book_ship_id_fkey" SOURCE="2144" DESTINATION="2160" FKIDS="219=238\n" Direction="0" RefColor="8388608" RefLabelColor="8894686" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="53" />
+
+<REFERENCE ID="56" Name="wp_user_address_book_bill_id_fkey" SOURCE="2144" DESTINATION="2160" FKIDS="219=239\n" Direction="0" RefColor="8388608" RefLabelColor="8894686" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="53" />
+
+<REFERENCE ID="57" Name="wp_user_address_book_user_id_fkey" SOURCE="1002" DESTINATION="2160" FKIDS="5=237\n" Direction="0" RefColor="8388608" RefLabelColor="8894686" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="2" />
+
+<REFERENCE ID="3606" Name="wp_graphic_tag_item_detail_item_id_fkey" SOURCE="2612" DESTINATION="3598" FKIDS="277=3604\n" Direction="0" RefColor="8388608" RefLabelColor="2139610" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="62" />
+
+<REFERENCE ID="44" Name="wp_order_detail_order_id_fkey" SOURCE="1090" DESTINATION="1346" FKIDS="60=109\n" Direction="0" RefColor="8388608" RefLabelColor="14150650" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="29" />
+
+<REFERENCE ID="3609" Name="wp_print_history_order_detail_id_fkey" SOURCE="1346" DESTINATION="2021" FKIDS="108=199\n" Direction="0" RefColor="8388608" RefLabelColor="14204888" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="43" />
+
+<REFERENCE ID="3611" Name="wp_order_order_ship_bill_id_fkey" SOURCE="2191" DESTINATION="1090" FKIDS="243=3619\n" Direction="0" RefColor="8388608" RefLabelColor="14150650" OnDelete="3" OnUpdate="3" Deferrable="0" MatchType="0" Comments="" Description="" Annotation="" Generate="1" FKConstraint_ID="58" />
+
+</REFERENCES>
+
+<NOTES>
+</NOTES>
+
+<STOREDPROCES>
+</STOREDPROCES>
+
+<VIEWS>
+<VIEW ID="4232" Name="view_order" SchemaOID="0" SchemaName="public" OwnerID="0" OwnerName="" XPos="1590" YPos="3340" LineColor="8388608" BackColor="3329434" Comments="search order results" Description="" Annotation="" BeginScript="" EndScript="" SQLQuery="SELECT\n\0009o.id, o.job_no, o.po_no, o.type, o.vendor_code, o.remark,\n\0009o.completion_date, o.status, o.so_no, o.created_time,\n\0009u.display_name as user_name,\n\0009s.display_name as print_shop_name,\n\0009COUNT (d.order_id) AS details_count,\n\0009SUM (d.qty) AS tot_qty\nFROM\n\0009wp_order o\nLEFT OUTER JOIN wp_user u ON o.created_id = u.id\nLEFT OUTER JOIN wp_print_shop s ON o.print_shop_id = s.id\nLEFT OUTER JOIN wp_order_detail d ON d.order_id = o.id\nGROUP BY\n\0009o.id, o.job_no, o.po_no, o.type, o.vendor_code, o.remark,\n\0009o.completion_date, o.status, o.so_no, o.created_time,\n\0009u.display_name,\n\0009s.display_name" Columns="o.id,o.job_no,o.po_no,o.type,o.vendor_code,o.remark,o.completion_date,o.status,o.so_no,o.created_time,user_name,print_shop_name,details_count,tot_qty" Tables="\Awp_order o\A,\Awp_user u\A,\Awp_print_shop s\A,\Awp_order_detail d\A" Temporary="0" SecurityBarrier="0" Recursive="0" Materialized="0" NoData="0" TablespaceID="0" Generate="1" ACL="" >
+</VIEW>
+
+</VIEWS>
+
+</METADATA>
+</DBMODEL>

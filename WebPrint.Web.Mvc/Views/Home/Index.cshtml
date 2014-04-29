@@ -1,0 +1,51 @@
+﻿@inherits WebPrint.Web.Mvc.Views.Shared.RazorViewPageBase
+
+@using System.Text
+@using Permission = WebPrint.Web.Core.Permission;
+@using WebPrint.Framework;
+@{
+    ViewBag.Title = "index";
+}
+
+<h4>index</h4>
+
+defalut page
+
+@section actions
+{
+    <ul>
+        <li>return</li>
+        <li>confirm</li>
+        <li>cancel</li>
+        <li>@Html.ActionLink("lower", "List", new { area = "Access", controller = "User", parameter="1234567890"})</li>
+        <li>
+            @{
+                var sb = new StringBuilder();
+                sb.AppendLine("begin");
+                var user = Context.User;
+                if (user.Identity.IsAuthenticated)
+                {
+                    var formIdentity = (FormsIdentity)user.Identity;
+
+                    sb.AppendLine(user.IsInRole(Permission.CheckOrder.GetDescription()).ToString());
+                    sb.AppendLine(user.IsInRole(Permission.CheckOrder.GetDescription()).ToString());
+
+                    sb.AppendLine(formIdentity.Name);
+                    sb.AppendLine(formIdentity.Ticket.UserData);
+                }
+                sb.AppendLine("end");
+            }
+            
+            @sb.ToString()
+        </li>
+    </ul>
+}
+
+@{
+    //WebViewPage<dynamic> dd = new _Page_Views_Home_Index_cshtml();
+    //var result = dd.RenderBody();
+    
+    
+}
+
+@*result.ToHtmlString()*@
