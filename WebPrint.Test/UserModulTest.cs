@@ -1,10 +1,9 @@
 ﻿using System;
 using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WebPrint.Data;
 using WebPrint.Framework;
 using WebPrint.Model;
-using WebPrint.Model.Services;
+using WebPrint.Service;
 
 namespace WebPrint.Test
 {

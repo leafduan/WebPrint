@@ -3,7 +3,7 @@ using System.Linq;
 using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebPrint.Model;
-using WebPrint.Model.Services;
+using WebPrint.Service;
 
 namespace WebPrint.Test
 {

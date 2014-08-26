@@ -1,8 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using WebPrint.Data;
 using WebPrint.Data.Repositories;
-using WebPrint.Model.Repositories;
 
 namespace WebPrint.Web.Mvc.IoC
 {

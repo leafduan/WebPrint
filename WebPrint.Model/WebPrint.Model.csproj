@@ -71,11 +71,8 @@
     <Compile Include="Domain\AddressBook.cs" />
     <Compile Include="Domain\UserGroup.cs" />
     <Compile Include="Helper\PaginationHelper.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Repositories\IUpcRepository.cs" />
+    <Compile Include="JsonIgnoreAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Helper\IFetchRequest.cs" />
-    <Compile Include="Services\IService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

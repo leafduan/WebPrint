@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 using WebPrint.Model;
-using WebPrint.Model.Services;
+using WebPrint.Service;
 
 namespace WebPrint.Web.Mvc.Api
 {
@@ -22,7 +22,7 @@ namespace WebPrint.Web.Mvc.Api
             // 如Order中 除了一般字段属性 还有Details(IList<OrderDetail>) CreatedUser(User) 等属性
             // 而这些属性导致对象的循环引用 如Order.Details 而Detail.Order 他们之间构成循环(Self referencing loop)
             var orders = service.Query(o => o.CreatedUser.Id == 1).ToList();
-
+            /*
             orders.ForEach(o =>
                 {
                     o.ShipBill = null;
@@ -31,7 +31,7 @@ namespace WebPrint.Web.Mvc.Api
                     o.Details.Clear();
                     o.PrintShop = null;
                 });
-
+            * */
             return orders;
 
             /*
@@ -47,11 +47,13 @@ namespace WebPrint.Web.Mvc.Api
         public Order Order(int id)
         {
             var order = service.Get(o => o.Id == id);
+            /*
             order.ShipBill = null;
             order.CreatedUser = null;
             order.ModifiedUser = null;
             order.Details.Clear();
             order.PrintShop = null;
+            * */
             return order;
             //return new Order {Id = 123, JobNo = "12333", PoNo = "45454"};
         }

@@ -2,7 +2,7 @@
 using System.Linq;
 using WebPrint.Framework;
 using WebPrint.Model;
-using WebPrint.Model.Services;
+using WebPrint.Service;
 
 namespace WebPrint.Web.Core
 {

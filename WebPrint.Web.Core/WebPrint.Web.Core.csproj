@@ -88,6 +88,10 @@
       <Project>{682DE556-3A35-41B6-940F-29E8C430FEC8}</Project>
       <Name>WebPrint.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebPrint.Service\WebPrint.Service.csproj">
+      <Project>{D38E155E-A396-4517-892B-A0D702C4D2E9}</Project>
+      <Name>WebPrint.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

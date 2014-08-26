@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Security.Principal;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using WebPrint.Web.Core;
 using WebPrint.Web.Mvc.Controllers;
+using WebPrint.Web.Mvc.Helper;
 using WebPrint.Web.Mvc.IoC;
 
 namespace WebPrint.Web.Mvc
@@ -40,11 +44,11 @@ namespace WebPrint.Web.Mvc
             MvcHandler.DisableMvcResponseHeader = true;
             var config = GlobalConfiguration.Configuration;
 
-            // web api 一律放回json格式
-            // config.Formatters.Remove(config.Formatters.XmlFormatter);
-            // 忽略web api序列化对象的Reference Loop(如NHibernate 中对象的互相引用)
-            // 要设置结果只返回json格式时 此设置才生效
-            //config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            jsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            jsonFormatter.SerializerSettings.ContractResolver = new NHibernateContractResolver();
+            jsonFormatter.SerializerSettings.Converters.Add(new StringEnumConverter());
 
 #if DEBUG
             // Start profile

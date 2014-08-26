@@ -4,10 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using WebPrint.Data;
 using WebPrint.Data.Helper;
+using WebPrint.Data.Repositories;
 using WebPrint.Model;
 using WebPrint.Model.Helper;
-using WebPrint.Model.Repositories;
-using WebPrint.Model.Services;
 
 namespace WebPrint.Service
 {

@@ -1,6 +1,4 @@
 ﻿using System;
-using WebPrint.Model;
-using WebPrint.Model.Services;
 
 namespace WebPrint.Web.Core
 {

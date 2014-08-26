@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using WebPrint.Model;
-using WebPrint.Model.Services;
+using WebPrint.Service;
 
 namespace WebPrint.Web.Mvc.Areas.Access.Controllers
 {

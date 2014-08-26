@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using WebPrint.Data.Helper;
+using WebPrint.Model;
 using WebPrint.Model.Helper;
 
-namespace WebPrint.Model.Services
+namespace WebPrint.Service
 {
     public interface IService<TEntity> where TEntity : EntityBase
     {

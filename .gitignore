@@ -1,4 +1,9 @@
 #################
+## For Project WebPrint.Web.Forms
+#################
+WebPrint.Web.Forms/
+
+#################
 ## Eclipse
 #################
 
@@ -131,6 +136,8 @@ publish/
 # NuGet Packages Directory
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
 #packages/
+packages/*
+!packages/repositories.config
 
 # Windows Azure Build Output
 csx

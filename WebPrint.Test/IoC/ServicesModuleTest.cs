@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using WebPrint.Service;
-using WebPrint.Model.Services;
 
 namespace WebPrint.Test
 {

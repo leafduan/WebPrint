@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
 using WebPrint.Model;
-using WebPrint.Model.Services;
 using WebPrint.Framework;
+using WebPrint.Service;
 using WebPrint.Web.Mvc.Filters;
 
 namespace WebPrint.Web.Mvc.Areas.Order.Controllers

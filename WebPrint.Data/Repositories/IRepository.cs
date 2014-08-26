@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using WebPrint.Model;
 
-namespace WebPrint.Model.Repositories
+namespace WebPrint.Data.Repositories
 {
     public interface IRepository<TEntity> where TEntity : EntityBase
     {

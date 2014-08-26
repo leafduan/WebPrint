@@ -3,8 +3,8 @@ using System.Linq;
 using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebPrint.Data;
+using WebPrint.Data.Repositories;
 using WebPrint.Model;
-using WebPrint.Model.Repositories;
 
 namespace WebPrint.Test
 {

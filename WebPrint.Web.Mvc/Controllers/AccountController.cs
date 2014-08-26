@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using WebPrint.Logging;
 using WebPrint.Model;
-using WebPrint.Model.Services;
+using WebPrint.Service;
 using WebPrint.Service.Helper;
 using WebPrint.Web.Core;
 using WebPrint.Web.Mvc.Models;

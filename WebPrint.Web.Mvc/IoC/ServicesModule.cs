@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using WebPrint.Service;
-using WebPrint.Model.Services;
 
 namespace WebPrint.Web.Mvc.IoC
 {

@@ -1,6 +1,25 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B5929DA5-F0B2-4B3A-B200-73257361AF7F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\repositories.config = packages\repositories.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schema", "Schema", "{12E259AD-D1C2-4CA1-B950-9090DA1725EC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\log4net.2.0.2\log4net.xsd = packages\log4net.2.0.2\log4net.xsd
+		packages\NHibernate.3.3.3.4001\nhibernate-configuration.xsd = packages\NHibernate.3.3.3.4001\nhibernate-configuration.xsd
+		packages\NHibernate.3.3.3.4001\nhibernate-mapping.xsd = packages\NHibernate.3.3.3.4001\nhibernate-mapping.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5833CC0-E69F-4AA3-B00E-1B8FA7CE89EF}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+		WebPrintStandard.vsmdi = WebPrintStandard.vsmdi
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Web.Forms", "WebPrint.Web.Forms\WebPrint.Web.Forms.csproj", "{11171CE3-6C41-4542-B1CA-F8279AB76E8B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Model", "WebPrint.Model\WebPrint.Model.csproj", "{682DE556-3A35-41B6-940F-29E8C430FEC8}"
@@ -17,28 +36,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.BarTender", "WebPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Framework", "WebPrint.Framework\WebPrint.Framework.csproj", "{FCAC9184-EF23-4177-B78F-7EFB835346F7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B5929DA5-F0B2-4B3A-B200-73257361AF7F}"
-	ProjectSection(SolutionItems) = preProject
-		packages\repositories.config = packages\repositories.config
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schema", "Schema", "{12E259AD-D1C2-4CA1-B950-9090DA1725EC}"
-	ProjectSection(SolutionItems) = preProject
-		packages\log4net.2.0.2\log4net.xsd = packages\log4net.2.0.2\log4net.xsd
-		packages\NHibernate.3.3.3.4001\nhibernate-configuration.xsd = packages\NHibernate.3.3.3.4001\nhibernate-configuration.xsd
-		packages\NHibernate.3.3.3.4001\nhibernate-mapping.xsd = packages\NHibernate.3.3.3.4001\nhibernate-mapping.xsd
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Data", "WebPrint.Data\WebPrint.Data.csproj", "{88CB4689-AF82-4798-A642-9E974FCA2D5D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Test", "WebPrint.Test\WebPrint.Test.csproj", "{BE2C9458-2E94-407F-A71C-74094ECB1929}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5833CC0-E69F-4AA3-B00E-1B8FA7CE89EF}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-		WebPrintStandard.vsmdi = WebPrintStandard.vsmdi
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Web.Mvc", "WebPrint.Web.Mvc\WebPrint.Web.Mvc.csproj", "{9B224C4D-E8AF-4FB0-A47E-A38A383BA3F3}"
 EndProject

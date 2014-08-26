@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using WebPrint.Data;
 using WebPrint.Data.Repositories;
-using WebPrint.Model.Repositories;
 
 namespace WebPrint.Test
 {

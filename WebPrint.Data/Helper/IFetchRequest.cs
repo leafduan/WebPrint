@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace WebPrint.Model.Helper
+namespace WebPrint.Data.Helper
 {
     public interface IFetchRequest<out TQueried, TFetch> : IOrderedQueryable<TQueried>
     {
