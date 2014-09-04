@@ -48,12 +48,15 @@ namespace WebPrint.Web.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            //var loginUser = Service.Get(u => u.UserName == model.Username && u.Password == model.Password);
+            var loginUser = Service.Get(u => u.UserName == model.Username && u.Password == model.Password);
 
+            /*
+             * Cannot simultaneously fetch multiple bags
             var loginUser =
                 Service.FetchMany(u => u.UserName == model.Username && u.Password == model.Password, u => u.Groups)
                        .ThenFetch(g => g.Permissions)
                        .FirstOrDefault();
+            */
 
             if (!ModelState.IsValid || loginUser == null)
             {

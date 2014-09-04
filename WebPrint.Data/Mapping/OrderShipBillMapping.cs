@@ -105,7 +105,9 @@ namespace WebPrint.Data.Mapping
                 // 延迟加载 必须选项，表示先保存order 再保存order ship bill
                 m.Constrained(true);
                 m.Lazy(LazyRelation.Proxy);
-                m.PropertyReference(typeof(Order).GetProperty("ShipBill", BindingFlags.IgnoreCase));
+                //m.PropertyReference(typeof(Order).GetProperty("ShipBill", BindingFlags.IgnoreCase));
+                // NHibernate 4.0
+                m.Class(typeof(Order));
                 m.Access(Accessor.Property);
             });
         }

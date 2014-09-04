@@ -1,5 +1,4 @@
 ﻿using NHibernate.Mapping.ByCode;
-using NHibernate.Mapping.ByCode.Conformist;
 using NHibernate.Type;
 using WebPrint.Model;
 

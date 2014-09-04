@@ -331,10 +331,13 @@ namespace WebPrint.Test
 
                 // 如果使用非外键，而是关联表对象的其他属性为条件，则left outer join关联外键表(order)，
                 // 再外键表条件查询
-                //var details = orderDetailService.Query(o => o.Order.JobNo == "WP0001");
+                /*
+                 * NHibernate 4.0 inner join order, where order.jobno = ''
+                 */
+                var details = orderDetailService.Query(o => o.Order.JobNo == "WP0001");
 
                 // 如果使用外键为条件 则直接为条件查询
-                var details = orderDetailService.Query(o => o.Order.Id == 1);
+                //var details = orderDetailService.Query(o => o.Order.Id == 1);
 
                 // 厉害 智能实现的厉害
 
@@ -404,7 +407,7 @@ namespace WebPrint.Test
                 //var order = orderService.EagerFetch(o => o.CreatedUser.Id == 1, o => o.Details).ToList();
 
                 var order = orderService
-                    .Fetch(o => o.CreatedUser.Id == 1, o => o.ShipBill);
+                    .Fetch(o => o.CreatedUser.Id == 1, o => o.ShipBill).ToList();
 
                 //var shipBill = order.First().ShipBill;
 

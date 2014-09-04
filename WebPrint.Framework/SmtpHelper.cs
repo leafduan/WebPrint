@@ -74,29 +74,14 @@ namespace WebPrint.Framework
         //可以用NVelocity模板引擎
         public static string EmailTemplate(string content, string orderSystemName)
         {
-            var template = "<html><body>"
-                            + "Thank you for your confirmation!<br/>"
-                            + "You could view the order's detail information via the link below:<br/>"
-                            + "{0}<br/><br/>"
-                            + "************************************************************************************<br/>"
-                            + "This e-mail is sent by the r-pac {1} ordering system automatically.<br/>"
-                            + "Please don't reply this e-mail directly!<br/>"
-                            + "************************************************************************************<br/>"
-                            + "</body></html>";
+            var template = "";
 
             return string.Format(template, content, orderSystemName);
         }
 
         public static string EmailCancelledTemplete(string content, string orderSystemName)
         {
-            var template = "<html><body>"
-                           + "Below order is cancelled:<br/>"
-                           + "{0}<br/><br/>"
-                           + "************************************************************************************<br/>"
-                           + "This e-mail is sent by the r-pac {1} ordering system automatically.<br/>"
-                           + "Please don't reply this e-mail directly!<br/>"
-                           + "************************************************************************************<br/>"
-                           + "</body></html>";
+            var template = "";
 
             return string.Format(template, content, orderSystemName);
         }
