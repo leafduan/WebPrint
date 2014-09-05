@@ -28,8 +28,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Service", "WebPrin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Web.Core", "WebPrint.Web.Core\WebPrint.Web.Core.csproj", "{2C697608-4892-41F9-BC6E-0F8EED00779F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseService", "DataBaseService\DataBaseService.csproj", "{569B5B35-948B-4939-BB99-450D3D52F793}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Office", "WebPrint.Office\WebPrint.Office.csproj", "{62B4372A-0FC1-4D7A-9A5E-6C4AE0EA908F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.BarTender", "WebPrint.Bartender\WebPrint.BarTender.csproj", "{AD122425-0F50-460D-A954-C6D3EF48A4C0}"
@@ -43,6 +41,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Web.Mvc", "WebPrint.Web.Mvc\WebPrint.Web.Mvc.csproj", "{9B224C4D-E8AF-4FB0-A47E-A38A383BA3F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Logging", "WebPrint.Logging\WebPrint.Logging.csproj", "{AC2C479E-0201-4AA4-8A7D-B120E4991183}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.DbService", "WebPrint.DbService\WebPrint.DbService.csproj", "{569B5B35-948B-4939-BB99-450D3D52F793}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -69,10 +69,6 @@ Global
 		{2C697608-4892-41F9-BC6E-0F8EED00779F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C697608-4892-41F9-BC6E-0F8EED00779F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C697608-4892-41F9-BC6E-0F8EED00779F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{569B5B35-948B-4939-BB99-450D3D52F793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{569B5B35-948B-4939-BB99-450D3D52F793}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{569B5B35-948B-4939-BB99-450D3D52F793}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{569B5B35-948B-4939-BB99-450D3D52F793}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62B4372A-0FC1-4D7A-9A5E-6C4AE0EA908F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62B4372A-0FC1-4D7A-9A5E-6C4AE0EA908F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62B4372A-0FC1-4D7A-9A5E-6C4AE0EA908F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,6 +97,10 @@ Global
 		{AC2C479E-0201-4AA4-8A7D-B120E4991183}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC2C479E-0201-4AA4-8A7D-B120E4991183}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC2C479E-0201-4AA4-8A7D-B120E4991183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{569B5B35-948B-4939-BB99-450D3D52F793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{569B5B35-948B-4939-BB99-450D3D52F793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{569B5B35-948B-4939-BB99-450D3D52F793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{569B5B35-948B-4939-BB99-450D3D52F793}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

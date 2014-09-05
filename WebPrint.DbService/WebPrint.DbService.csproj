@@ -8,8 +8,8 @@
     <ProjectGuid>{569B5B35-948B-4939-BB99-450D3D52F793}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataBaseService</RootNamespace>
-    <AssemblyName>DataBaseService</AssemblyName>
+    <RootNamespace>WebPrint.DbService</RootNamespace>
+    <AssemblyName>WebPrint.DbService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>
@@ -61,10 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionManagerBase.cs" />
-    <Compile Include="DBOperator.cs" />
-    <Compile Include="DBOperatorFactory.cs" />
-    <Compile Include="MySqlDBOperator.cs" />
-    <Compile Include="PgsqlDBOperator.cs" />
+    <Compile Include="DbOperator.cs" />
+    <Compile Include="DbOperatorFactory.cs" />
+    <Compile Include="MySqlDbOperator.cs" />
+    <Compile Include="PgsqlDbOperator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

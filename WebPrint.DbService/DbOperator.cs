@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Data;
 using System.Data.Common;
-using System.Data;
 
-namespace DataBaseService
+namespace WebPrint.DbService
 {
-    public abstract class DBOperator
+    public abstract class DbOperator
     {
         protected DbConnection Connection { get; set; }
         protected DbTransaction Transaction { get; set; }
         protected DbCommand TransCommand { get; set; }
 
-        protected DBOperator() { }
+        protected DbOperator() { }
 
         protected void OpenConnection()
         {

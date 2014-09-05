@@ -1,69 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Configuration;
 using System.Data;
-using System.Data.Common;
-using Npgsql;
+using MySql.Data.MySqlClient;
 
-namespace DataBaseService
+namespace WebPrint.DbService
 {
-    public class PgsqlDBOperator : DBOperator
+    public class MySqlDbOperator : DbOperator
     {
-        /// <summary>
-        /// Default Config connectionStrings "conn"
-        /// </summary>
-        public PgsqlDBOperator() //: this("conn") { }
+        public MySqlDbOperator(string connectionString)
         {
-            this.Connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
-        }
-        /*
-        /// <summary>
-        /// Config connectionStrings name
-        /// </summary>
-        /// <param name="connectionStringName">connectionStrings name</param>
-        public PgsqlDBOperator(string connectionStringName) 
-        {
-            this.Connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString);
-        }
-         * */
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionString">connectionString</param>
-        public PgsqlDBOperator(string connectionString)
-        {
-            this.Connection = new NpgsqlConnection(connectionString);
+            this.Connection = new MySqlConnection(connectionString);
         }
 
-        #region Query
-        public override DataTable Query(string cmdText)
+        public override System.Data.DataTable Query(string cmdText)
         {
             return Query(cmdText, CommandType.Text);
         }
 
-        public override DataTable Query(string cmdText, CommandType cmdType)
+        public override System.Data.DataTable Query(string cmdText, System.Data.CommandType cmdType)
         {
             return Query(cmdText, cmdType, null);
         }
 
-        public override DataTable Query(string cmdText, CommandType cmdType, DbParameter[] parameters)
+        public override System.Data.DataTable Query(string cmdText, System.Data.CommandType cmdType, System.Data.Common.DbParameter[] parameters)
         {
-            DataTable rtDt = new DataTable();
+            DataTable rDt = new DataTable();
             try
             {
-                using (NpgsqlCommand cmd = new NpgsqlCommand(cmdText, (NpgsqlConnection)this.Connection))
+                using (MySqlCommand cmd = new MySqlCommand(cmdText, (MySqlConnection)this.Connection))
                 {
                     cmd.CommandType = cmdType;
                     if (parameters != null) cmd.Parameters.AddRange(parameters);
-                    cmd.CommandTimeout = 0;
 
-                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     this.OpenConnection();
-                    da.Fill(rtDt);
-                    da.Dispose();
+                    adapter.Fill(rDt);
+                    adapter.Dispose();
                 }
             }
             catch (Exception ex)
@@ -75,27 +46,26 @@ namespace DataBaseService
                 this.CloseConnection();
             }
 
-            return rtDt;
+            return rDt;
         }
-        #endregion
 
-        #region ExecuteReader
-        public override DbDataReader ExecuteReader(string cmdText)
+        public override System.Data.Common.DbDataReader ExecuteReader(string cmdText)
         {
             return ExecuteReader(cmdText, CommandType.Text);
         }
 
-        public override DbDataReader ExecuteReader(string cmdText, CommandType cmdType)
+        public override System.Data.Common.DbDataReader ExecuteReader(string cmdText, System.Data.CommandType cmdType)
         {
             return ExecuteReader(cmdText, cmdType, null);
         }
 
-        public override DbDataReader ExecuteReader(string cmdText, CommandType cmdType, DbParameter[] parameters)
+        public override System.Data.Common.DbDataReader ExecuteReader(string cmdText, System.Data.CommandType cmdType, System.Data.Common.DbParameter[] parameters)
         {
-            NpgsqlDataReader reader = null;
+            MySqlDataReader reader = null;
+
             try
             {
-                using (NpgsqlCommand cmd = new NpgsqlCommand(cmdText, (NpgsqlConnection)this.Connection))
+                using (MySqlCommand cmd = new MySqlCommand(cmdText, (MySqlConnection)this.Connection))
                 {
                     cmd.CommandType = cmdType;
                     if (parameters != null) cmd.Parameters.AddRange(parameters);
@@ -113,26 +83,24 @@ namespace DataBaseService
 
             return reader;
         }
-        #endregion
 
-        #region ExecuteScalar
         public override object ExecuteScalar(string cmdText)
         {
             return ExecuteScalar(cmdText, CommandType.Text);
         }
 
-        public override object ExecuteScalar(string cmdText, CommandType cmdType)
+        public override object ExecuteScalar(string cmdText, System.Data.CommandType cmdType)
         {
             return ExecuteScalar(cmdText, cmdType, null);
         }
 
-        public override object ExecuteScalar(string cmdText, CommandType cmdType, DbParameter[] parameters)
+        public override object ExecuteScalar(string cmdText, System.Data.CommandType cmdType, System.Data.Common.DbParameter[] parameters)
         {
             //if (parameters == null) throw new ArgumentNullException("Null reference of param: parameters.");
             object rtValue = new object();
             try
             {
-                using (NpgsqlCommand cmd = new NpgsqlCommand(cmdText, (NpgsqlConnection)this.Connection))
+                using (MySqlCommand cmd = new MySqlCommand(cmdText, (MySqlConnection)this.Connection))
                 {
                     cmd.CommandType = cmdType;
                     if (parameters != null) cmd.Parameters.AddRange(parameters);
@@ -153,26 +121,24 @@ namespace DataBaseService
 
             return rtValue;
         }
-        #endregion
 
-        #region ExecuteNonQuery
         public override int ExecuteNonQuery(string cmdText)
         {
             return ExecuteNonQuery(cmdText, CommandType.Text);
         }
 
-        public override int ExecuteNonQuery(string cmdText, CommandType cmdType)
+        public override int ExecuteNonQuery(string cmdText, System.Data.CommandType cmdType)
         {
             return ExecuteNonQuery(cmdText, cmdType, null);
         }
 
-        public override int ExecuteNonQuery(string cmdText, CommandType cmdType, DbParameter[] parameters)
+        public override int ExecuteNonQuery(string cmdText, System.Data.CommandType cmdType, System.Data.Common.DbParameter[] parameters)
         {
             //if (parameters == null) throw new ArgumentNullException("Null reference of param: parameters.");
             int numberOfAffectedRows = 0;
             try
             {
-                using (NpgsqlCommand cmd = new NpgsqlCommand(cmdText, (NpgsqlConnection)this.Connection))
+                using (MySqlCommand cmd = new MySqlCommand(cmdText, (MySqlConnection)this.Connection))
                 {
                     cmd.CommandType = cmdType;
                     if (parameters != null) cmd.Parameters.AddRange(parameters);
@@ -193,9 +159,7 @@ namespace DataBaseService
 
             return numberOfAffectedRows;
         }
-        #endregion
 
-        #region Transaction
         public override void BeginTrans()
         {
             //事务并发控制 串行
@@ -206,7 +170,7 @@ namespace DataBaseService
 
             this.OpenConnection();
             this.Transaction = this.Connection.BeginTransaction();
-            this.TransCommand = new NpgsqlCommand();
+            this.TransCommand = new MySqlCommand();
             this.TransCommand.Connection = this.Connection;
             this.TransCommand.Transaction = this.Transaction;
             this.TransCommand.CommandTimeout = 7200;
@@ -227,21 +191,18 @@ namespace DataBaseService
             this.CloseTransaction();
             this.CloseTransCommand();
         }
-        #endregion
 
-        #region ExecuteNonQueryTrans
         public override int ExecuteNonQueryTrans(string cmdText)
         {
             return ExecuteNonQueryTrans(cmdText, null);
         }
 
-        public override int ExecuteNonQueryTrans(string cmdText, DbParameter[] parameters)
+        public override int ExecuteNonQueryTrans(string cmdText, System.Data.Common.DbParameter[] parameters)
         {
             TransCommand.CommandText = cmdText;
             TransCommand.CommandType = CommandType.Text;
             if (parameters != null) TransCommand.Parameters.AddRange(parameters);
             return TransCommand.ExecuteNonQuery();
         }
-        #endregion
     }
 }
