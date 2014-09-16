@@ -27,9 +27,11 @@ namespace WebPrint.Data.Repositories
          * 应该单独出一个UnitOfWork，独立于各repository，然后所有的事务操作在其中完成
          * */
 
-        protected ISession Session {
+        protected ISession Session
+        {
             get { return sessionProvider.Session; }
         }
+
         private readonly ISessionProvider sessionProvider;
 
         public Repository(ISessionProvider sessionProvider)
@@ -55,11 +57,6 @@ namespace WebPrint.Data.Repositories
             }
         }
 
-        public IQueryable<TEntity> Query()
-        {
-            return Session.Query<TEntity>();
-        }
-
         /*
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
@@ -70,9 +67,11 @@ namespace WebPrint.Data.Repositories
         }
         * */
 
-        public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return Query().Where(predicate);
+            return predicate == null
+                ? Session.Query<TEntity>()
+                : Session.Query<TEntity>().Where(predicate);
         }
 
         /*
@@ -103,7 +102,7 @@ namespace WebPrint.Data.Repositories
             Session.Update(entity);
         }
 
-        public void Update(Expression<Func<TEntity, bool>> predicate, Action<TEntity> action)
+        public void Update(Action<TEntity> action, Expression<Func<TEntity, bool>> predicate = null)
         {
             var entities = Query(predicate);
 
@@ -127,7 +126,7 @@ namespace WebPrint.Data.Repositories
             }
         }
 
-        public void Delete(Expression<Func<TEntity, bool>> predicate)
+        public void Delete(Expression<Func<TEntity, bool>> predicate = null)
         {
             var entities = Query(predicate);
             Delete(entities);

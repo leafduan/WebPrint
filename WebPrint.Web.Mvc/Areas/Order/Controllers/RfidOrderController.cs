@@ -27,7 +27,8 @@ namespace WebPrint.Web.Mvc.Areas.Order.Controllers
         {
             var orderId = jno.AsOrderId();
             var order = Service
-                .Fetch(o => o.Id == orderId && o.Type == OrderType.ServiceBureau, o => o.ShipBill)
+                .Queryable(o => o.Id == orderId && o.Type == OrderType.ServiceBureau)
+                .Fetch(o => o.ShipBill)
                 .Fetch(o => o.CreatedUser)
                 .FetchMany(o => o.Details)
                 .ThenFetch(d => d.Format)

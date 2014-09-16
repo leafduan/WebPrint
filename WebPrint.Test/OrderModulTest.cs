@@ -6,6 +6,7 @@ using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebPrint.Model;
 using WebPrint.Service;
+using WebPrint.Service.Helper;
 
 namespace WebPrint.Test
 {
@@ -407,7 +408,8 @@ namespace WebPrint.Test
                 //var order = orderService.EagerFetch(o => o.CreatedUser.Id == 1, o => o.Details).ToList();
 
                 var order = orderService
-                    .Fetch(o => o.CreatedUser.Id == 1, o => o.ShipBill).ToList();
+                    .Queryable(o => o.CreatedUser.Id == 1)
+                    .Fetch(o => o.ShipBill).ToList();
 
                 //var shipBill = order.First().ShipBill;
 

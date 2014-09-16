@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using WebPrint.Data;
-using WebPrint.Data.Helper;
 using WebPrint.Data.Repositories;
 using WebPrint.Model;
 using WebPrint.Model.Helper;
@@ -16,100 +15,177 @@ namespace WebPrint.Service
     /// <typeparam name="TEntity">EntityBase</typeparam>
     public class Service<TEntity> : IService<TEntity> where TEntity : EntityBase
     {
-        protected readonly IRepository<TEntity> repository;
-        private readonly IUnitOfWork unitOfWork;
+        protected IRepository<TEntity> Repository { get; set; }
+        protected IUnitOfWork UnitOfWork { get; private set; }
 
         public Service(IRepository<TEntity> repository, IUnitOfWork unitOfWork)
         {
-            this.repository = repository;
-            this.unitOfWork = unitOfWork;
+            this.Repository = repository;
+            this.UnitOfWork = unitOfWork;
         }
 
         #region IService<TEntity> 成员
 
         public object Save(TEntity entity)
         {
-            return repository.Save(entity);
+            return Repository.Save(entity);
         }
 
         public TKey Save<TKey>(TEntity entity)
         {
-            return repository.Save<TKey>(entity);
+            return Repository.Save<TKey>(entity);
         }
 
         public void Save(IEnumerable<TEntity> entities)
         {
-            repository.Save(entities);
+            Repository.Save(entities);
         }
 
         public bool Exists(Expression<Func<TEntity, bool>> predicate)
         {
+            /*
             return repository
                        .Query(predicate)
                        .FirstOrDefault() != null;
+             * */
+
+            return Repository
+                .Query(predicate)
+                .Any();
+        }
+
+        public IQueryable<TEntity> Queryable(Expression<Func<TEntity, bool>> predicate = null)
+        {
+            return Repository.Query(predicate);
         }
 
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
-            return repository
+            return Repository
                 .Query(predicate)
                 .SingleOrDefault();
         }
 
-        public IEnumerable<TEntity> Query(Expression<Func<TEntity, bool>> predicate)
+        public int Count(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return repository.Query(predicate);
+            return Repository
+                .Query(predicate)
+                .Count();
         }
 
-        public PagedList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, int pageIndex, int pageSize)
+        public decimal Sum(Expression<Func<TEntity, decimal?>> selector,
+            Expression<Func<TEntity, bool>> predicate = null)
         {
-            return repository
+            var reslut = Repository
+                .Query(predicate)
+                .Sum(selector);
+
+            return reslut ?? default(decimal);
+        }
+
+        public IEnumerable<TResult> Distinct<TResult>(Expression<Func<TEntity, TResult>> selector,
+            Expression<Func<TEntity, bool>> predicate = null)
+        {
+            return Repository
+                .Query(predicate)
+                .Select(selector).Distinct();
+        }
+
+        //public IQueryable<IGrouping<TResult, TEntity>> GroupBy<TResult>(Expression<Func<TEntity, TResult>> selector,
+        //    Expression<Func<TEntity, bool>> predicate = null)
+        //{
+        //    return Repository
+        //        .Query(predicate)
+        //        .GroupBy(selector);
+        //}
+
+        public IEnumerable<TEntity> Query(Expression<Func<TEntity, bool>> predicate = null)
+        {
+            return Repository.Query(predicate);
+        }
+
+        public IEnumerable<TResult> Query<TResult>(Expression<Func<TEntity, TResult>> selector,
+            Expression<Func<TEntity, bool>> predicate = null)
+        {
+            return Repository
+                .Query(predicate)
+                .Select(selector);
+        }
+
+        public PagedList<TEntity> Query(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> predicate = null)
+        {
+            return Repository
                 .Query(predicate)
                 .OrderBy(t => t.Id)
                 .ToPagedList(pageIndex, pageSize);
         }
 
-        public PagedList<TEntity> QueryDescending(Expression<Func<TEntity, bool>> predicate, int pageIndex, int pageSize)
+        public PagedList<TEntity> Query<TKey>(int pageIndex, int pageSize,
+            Expression<Func<TEntity, TKey>> keySelector, Expression<Func<TEntity, bool>> predicate = null)
         {
-            return repository
+            return Repository
+                .Query(predicate)
+                .OrderBy(keySelector)
+                .ToPagedList(pageIndex, pageSize);
+        }
+
+        public PagedList<TEntity> QueryDescending(int pageIndex, int pageSize,
+            Expression<Func<TEntity, bool>> predicate = null)
+        {
+            return Repository
                 .Query(predicate)
                 .OrderByDescending(t => t.Id)
                 .ToPagedList(pageIndex, pageSize);
         }
 
-        public IFetchRequest<TEntity, TRelated> Fetch<TRelated>(Expression<Func<TEntity, bool>> predicate,
-                                                                Expression<Func<TEntity, TRelated>>
-                                                                    relatedObjectSelector)
+        public PagedList<TEntity> QueryDescending<TKey>(int pageIndex, int pageSize,
+            Expression<Func<TEntity, TKey>> keySelector, Expression<Func<TEntity, bool>> predicate = null)
         {
-            return repository.Query(predicate).EagerFetch(relatedObjectSelector);
+            return Repository
+                .Query(predicate)
+                .OrderByDescending(keySelector)
+                .ToPagedList(pageIndex, pageSize);
+        }
+
+        /*
+        public IFetchRequest<TEntity, TRelated> Fetch<TRelated>(Expression<Func<TEntity, bool>> predicate,
+            Expression<Func<TEntity, TRelated>>
+                relatedObjectSelector)
+        {
+            return Repository
+                .Query(predicate)
+                .EagerFetch(relatedObjectSelector);
         }
 
         public IFetchRequest<TEntity, TRelated> FetchMany<TRelated>(Expression<Func<TEntity, bool>> predicate,
-                                                                    Expression<Func<TEntity, IEnumerable<TRelated>>>
-                                                                        relatedObjectSelector)
+            Expression<Func<TEntity, IEnumerable<TRelated>>>
+                relatedObjectSelector)
         {
-            return repository.Query(predicate).EagerFetchMany(relatedObjectSelector);
-        }
+            return Repository
+                .Query(predicate)
+                .EagerFetchMany(relatedObjectSelector);
+        
+         * */
 
         public TEntity Load(int id)
         {
-            return repository.Load(id);
+            return Repository.Load(id);
         }
 
-        public void Update(Expression<Func<TEntity, bool>> predicate, Action<TEntity> action)
+        public void Update(Action<TEntity> action, Expression<Func<TEntity, bool>> predicate = null)
         {
-            repository.Update(predicate, action);
+            Repository.Update(action, predicate);
         }
 
-        public void Delete(Expression<Func<TEntity, bool>> predicate)
+        public void Delete(Expression<Func<TEntity, bool>> predicate = null)
         {
-            repository.Delete(predicate);
+            Repository.Delete(predicate);
         }
 
         public void Delete(int id)
         {
-            var entity = repository.Load(id);
-            repository.Delete(entity);
+            var entity = Repository.Load(id);
+            Repository.Delete(entity);
         }
 
         #endregion

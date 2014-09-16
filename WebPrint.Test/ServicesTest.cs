@@ -55,8 +55,8 @@ namespace WebPrint.Test
             {
                 var upcService = lifetime.Resolve<IService<Upc>>();
 
-                var list1 = upcService.Query(u => u.UpcValue == "123456789098", 1, 2);
-                var list2 = upcService.Query(u => u.UpcValue == "123456789098", 2, 2);
+                var list1 = upcService.Query(1, 2, u => u.UpcValue == "123456789098");
+                var list2 = upcService.Query(2, 2, u => u.UpcValue == "123456789098");
 
                 Assert.AreEqual(2, list1.Count());
                 Assert.IsTrue(2 <= list2.Count());
@@ -69,8 +69,7 @@ namespace WebPrint.Test
             using (var lifetime = IocConfig.Container.BeginLifetimeScope())
             {
                 var upcServices = lifetime.Resolve<IService<Upc>>();
-                upcServices.Update(u => u.UpcValue == "789456123000", u => u.CreatedTime = new DateTime(1988, 8, 8));
-
+                upcServices.Update(u => u.CreatedTime = new DateTime(1988, 8, 8), u => u.UpcValue == "789456123000");
                 var model = upcServices.Get(u => u.UpcValue == "789456123000");
 
                 Assert.AreEqual(new DateTime(1988, 8, 8), model.CreatedTime, "Update failed.");

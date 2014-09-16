@@ -12,9 +12,7 @@ namespace WebPrint.Data.Repositories
         TKey Save<TKey>(TEntity entity);
         void Save(IEnumerable<TEntity> items);
 
-        IQueryable<TEntity> Query();
-        //TEntity Get(Expression<Func<TEntity, bool>> predicate);
-        IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate);
+        IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate = null);
 
         /*
         /// <summary>
@@ -28,10 +26,10 @@ namespace WebPrint.Data.Repositories
         TEntity Load(object id);
 
         void Update(TEntity entity);
-        void Update(Expression<Func<TEntity, bool>> predicate, Action<TEntity> action);
+        void Update(Action<TEntity> action, Expression<Func<TEntity, bool>> predicate = null);
 
         void Delete(TEntity entity);
         void Delete(IEnumerable<TEntity> entities);
-        void Delete(Expression<Func<TEntity, bool>> predicate);
+        void Delete(Expression<Func<TEntity, bool>> predicate = null);
     }
 }

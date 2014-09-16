@@ -11,6 +11,7 @@ namespace WebPrint.Web.Mvc.Areas.Order.Controllers
     public class OrderController : Controller
     {
         private readonly Lazy<IService<ViewOrder>> lazyService;
+
         private IService<ViewOrder> Service
         {
             get { return lazyService.Value; }
@@ -42,7 +43,7 @@ namespace WebPrint.Web.Mvc.Areas.Order.Controllers
             if (!status.IsNullOrEmpty())
                 predicate = predicate.And(o => o.Status == status.AsEnum<OrderStatus>());
 
-            return View(Service.QueryDescending(predicate, 1, 50));
+            return View(Service.QueryDescending(1, 50, predicate));
         }
     }
 }

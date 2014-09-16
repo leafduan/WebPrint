@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace WebPrint.Framework
 {
@@ -39,5 +40,20 @@ namespace WebPrint.Framework
                 : me.ToString();
         }
         #endregion
+
+        public static object GetPropertyValue(this object value, string propertyName)
+        {
+            if (value == null)
+                return null;
+
+            var property = value
+                .GetType()
+                .GetProperty(propertyName, BindingFlags.Instance | BindingFlags.IgnoreCase | BindingFlags.Public);
+
+            if (property == null)
+                return null;
+
+            return property.GetValue(value, null);
+        }
     }
 }
