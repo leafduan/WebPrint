@@ -1,5 +1,7 @@
 ﻿using System;
 using NHibernate;
+using WebPrint.Data.Repositories;
+using WebPrint.Model;
 
 namespace WebPrint.Data
 {
@@ -79,6 +81,11 @@ namespace WebPrint.Data
         public void Dispose()
         {
             Close();
+        }
+
+        public IRepository<TEntity> Repository<TEntity>() where TEntity : EntityBase
+        {
+            return new Repository<TEntity>(sessionProvider);
         }
 
         #endregion

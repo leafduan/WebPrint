@@ -1,4 +1,6 @@
 ﻿using System;
+using WebPrint.Data.Repositories;
+using WebPrint.Model;
 
 namespace WebPrint.Data
 {
@@ -8,5 +10,7 @@ namespace WebPrint.Data
         // void Start();
         // void Commit();
         // void Rollback();
+
+        IRepository<TEntity> Repository<TEntity>() where TEntity : EntityBase;
     }
 }
