@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using WebPrint.Data;
 using WebPrint.Data.Repositories;
 using WebPrint.Model;
-using WebPrint.Model.Helper;
 
 namespace WebPrint.Service
 {
@@ -26,19 +25,9 @@ namespace WebPrint.Service
 
         #region IService<TEntity> 成员
 
-        public object Save(TEntity entity)
+        public int Save(TEntity entity)
         {
-            return Repository.Save(entity);
-        }
-
-        public TKey Save<TKey>(TEntity entity)
-        {
-            return Repository.Save<TKey>(entity);
-        }
-
-        public void Save(IEnumerable<TEntity> entities)
-        {
-            Repository.Save(entities);
+            return (int) (Repository.Save(entity) ?? 0);
         }
 
         public bool Exists(Expression<Func<TEntity, bool>> predicate)
@@ -59,6 +48,11 @@ namespace WebPrint.Service
             return Repository.Query(predicate);
         }
 
+        public TEntity Get(int id)
+        {
+            return Repository.Get(id);
+        }
+
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
             return Repository
@@ -73,6 +67,7 @@ namespace WebPrint.Service
                 .Count();
         }
 
+        /*
         public decimal Sum(Expression<Func<TEntity, decimal?>> selector,
             Expression<Func<TEntity, bool>> predicate = null)
         {
@@ -146,6 +141,7 @@ namespace WebPrint.Service
                 .OrderByDescending(keySelector)
                 .ToPagedList(pageIndex, pageSize);
         }
+        */
 
         /*
         public IFetchRequest<TEntity, TRelated> Fetch<TRelated>(Expression<Func<TEntity, bool>> predicate,
@@ -186,6 +182,16 @@ namespace WebPrint.Service
         {
             var entity = Repository.Load(id);
             Repository.Delete(entity);
+        }
+
+        public IEnumerable<object> SqlQuery(string sql)
+        {
+            return Repository.SqlQuery(sql);
+        }
+
+        public int ExcuteSql(string sql)
+        {
+            return Repository.ExcuteSql(sql);
         }
 
         #endregion

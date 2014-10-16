@@ -33,7 +33,7 @@ namespace WebPrint.Framework
         /// <param name="target">被拆分的字符串</param>
         /// <param name="separator">分隔符</param>
         /// <returns>链表</returns>
-        public static List<T> Split<T>(this string target, params char[] separator)
+        public static IEnumerable<T> Split<T>(this string target, params char[] separator)
         {
             if (target.Length == 0) return new List<T>();
             /*
@@ -52,8 +52,7 @@ namespace WebPrint.Framework
             */
             return target
                 .Split(separator)
-                .Select(value => string.IsNullOrEmpty(value) ? default(T) : (T)Convert.ChangeType(value, typeof(T)))
-                .ToList();
+                .Select(value => string.IsNullOrEmpty(value) ? default(T) : (T) Convert.ChangeType(value, typeof (T)));
         }
 
         /// <summary>

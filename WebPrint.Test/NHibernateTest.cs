@@ -1,6 +1,10 @@
 ﻿using System.IO;
+using System.Linq;
+using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebPrint.Data;
+using WebPrint.Data.Repositories;
+using WebPrint.Model;
 
 namespace WebPrint.Test
 {
@@ -25,17 +29,12 @@ namespace WebPrint.Test
         ///</summary>
         public TestContext TestContext
         {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
+            get { return testContextInstance; }
+            set { testContextInstance = value; }
         }
 
         #region 附加测试特性
+
         //
         // 编写测试时，可以使用以下附加特性:
         //
@@ -55,6 +54,7 @@ namespace WebPrint.Test
         // [TestCleanup()]
         // public void MyTestCleanup() { }
         //
+
         #endregion
 
         [TestMethod]
@@ -70,5 +70,36 @@ namespace WebPrint.Test
                 Assert.IsTrue(2 + 2 == 2*2);
             }
         }
+
+        [TestMethod]
+        public void TestSqlQuery()
+        {
+            using (var lifetime = IocConfig.Container.BeginLifetimeScope())
+            {
+                var repository = lifetime.Resolve<IRepository<User>>();
+
+                var list = repository.SqlQuery("select * from wp_user");
+
+                Assert.IsTrue(list.Any());
+            }
+        }
+
+        [TestMethod]
+        public void TestSqlExcute()
+        {
+            using (var lifetime = IocConfig.Container.BeginLifetimeScope())
+            {
+                var repository = lifetime.Resolve<IRepository<User>>();
+
+                var list = repository.ExcuteSql("update wp_user set user_name = 'leaf' where user_name = 'leaf'");
+
+                Assert.IsTrue(list > 0);
+            }
+        }
+    }
+
+    public class ViewModel
+    {
+        public string Name { get; set; }
     }
 }

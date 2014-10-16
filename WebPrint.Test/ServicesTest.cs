@@ -28,7 +28,7 @@ namespace WebPrint.Test
                         Gtin = "789456123000"
                     };
 
-                var id = upcServices.Save<int>(model);
+                var id = upcServices.Save(model);
 
                 Assert.IsNotNull(id, "create upc failed.");
                 Assert.AreEqual(id, model.Id);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using NHibernate;
 using NHibernate.Linq;
+using NHibernate.Util;
 using WebPrint.Model;
 
 namespace WebPrint.Data.Repositories
@@ -44,19 +45,6 @@ namespace WebPrint.Data.Repositories
             return Session.Save(entity);
         }
 
-        public TKey Save<TKey>(TEntity entity)
-        {
-            return (TKey) Session.Save(entity);
-        }
-
-        public void Save(IEnumerable<TEntity> items)
-        {
-            foreach (var entity in items)
-            {
-                Session.Save(entity);
-            }
-        }
-
         /*
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
@@ -92,6 +80,11 @@ namespace WebPrint.Data.Repositories
         }
         * */
 
+        public TEntity Get(object id)
+        {
+            return Session.Get<TEntity>(id);
+        }
+
         public TEntity Load(object id)
         {
             return Session.Load<TEntity>(id);
@@ -118,18 +111,24 @@ namespace WebPrint.Data.Repositories
             Session.Delete(entity);
         }
 
-        public void Delete(IEnumerable<TEntity> entities)
-        {
-            foreach (var entity in entities)
-            {
-                Session.Delete(entity);
-            }
-        }
-
         public void Delete(Expression<Func<TEntity, bool>> predicate = null)
         {
             var entities = Query(predicate);
-            Delete(entities);
+            entities.ForEach(Delete);
+        }
+
+        public IEnumerable<object> SqlQuery(string sql)
+        {
+            return Session
+                .CreateSQLQuery(sql)
+                .Future<object>();
+        }
+
+        public int ExcuteSql(string sql)
+        {
+            return Session
+                .CreateSQLQuery(sql)
+                .ExecuteUpdate();
         }
     }
 }

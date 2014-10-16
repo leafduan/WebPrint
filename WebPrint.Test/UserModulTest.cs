@@ -97,7 +97,7 @@ namespace WebPrint.Test
                     /* print shop 主键作为 user 的外键时，会自动维护关系，先插入print shop，再赋值user的print_shop_id，再插入user */
                     /* 如果unique key关联，则不会自动维护关系 */
                     //printId = printShopService.Save<int>(printShop);
-                    userId = userService.Save<int>(user);
+                    userId = (int)userService.Save(user);
                 }
 
                 //Assert.IsTrue(printId > 0, "Save PrintShop fail");
@@ -134,7 +134,7 @@ namespace WebPrint.Test
                     };
 
                 //var printId = 0;
-                var userId = userService.Save<int>(user);
+                var userId = userService.Save(user);
 
                 //Assert.IsTrue(printId > 0, "Save PrintShop fail");
                 Assert.IsTrue(userId > 0, "Save User fail");

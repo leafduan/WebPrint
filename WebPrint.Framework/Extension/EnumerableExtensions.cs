@@ -1,43 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace WebPrint.Framework
 {
     public static class ListExtensions
     {
-        /// <summary>
-        /// 将链表转换成以 separator 分隔的字符串
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="target">列表</param>
-        /// <param name="separator">分隔符</param>
-        /// <returns>拼接字符串</returns>
-        public static string Join<T>(this IEnumerable<T> target, string separator)
-        {
-            var result = new StringBuilder();
-
-            foreach (var item in target)
-            {
-                if (result.Length > 0) result.Append(separator);
-                result.Append(item);
-            }
-
-            return result.ToString();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="target"></param>
         /// <param name="separator"></param>
         /// <param name="action">处理拼接中的链表元素</param>
         /// <returns></returns>
-        public static string Join<T>(this IEnumerable<T> target, string separator, Func<T, string> action)
+        public static string Join<T>(this IEnumerable<T> target, string separator = ",", Func<T, string> action = null)
         {
+            /*
             var result = new StringBuilder();
-
             foreach (var item in target)
             {
                 if (result.Length > 0) result.Append(separator);
@@ -45,6 +22,11 @@ namespace WebPrint.Framework
             }
 
             return result.ToString();
+            */
+
+            return action == null
+                ? string.Join(separator, target)
+                : string.Join(separator, target.Select(action));
         }
 
         /// <summary>
@@ -56,7 +38,6 @@ namespace WebPrint.Framework
         /// <exception cref="ArgumentNullException"></exception>
         public static void ForEach<T>(this IEnumerable<T> list, Action<T> action)
         {
-
             if (action == null)
             {
                 throw new ArgumentNullException("action");
