@@ -82,7 +82,7 @@ namespace WebPrint.Service
         /// </summary>
         void Delete(int id);
 
-        IEnumerable<object> SqlQuery(string sql);
+        IEnumerable<TResult> SqlQuery<TResult>(string sql);
 
         int ExcuteSql(string sql);
     }

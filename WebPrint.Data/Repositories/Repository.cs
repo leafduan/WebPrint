@@ -4,7 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using NHibernate;
 using NHibernate.Linq;
+using NHibernate.Transform;
 using NHibernate.Util;
+using WebPrint.Data.Helper;
 using WebPrint.Model;
 
 namespace WebPrint.Data.Repositories
@@ -117,11 +119,13 @@ namespace WebPrint.Data.Repositories
             entities.ForEach(Delete);
         }
 
-        public IEnumerable<object> SqlQuery(string sql)
+        public IEnumerable<TResult> SqlQuery<TResult>(string sql)
         {
             return Session
                 .CreateSQLQuery(sql)
-                .Future<object>();
+                .SetScalars(typeof (TResult))
+                .SetResultTransformer(Transformers.AliasToBean(typeof (TResult)))
+                .Future<TResult>();
         }
 
         public int ExcuteSql(string sql)

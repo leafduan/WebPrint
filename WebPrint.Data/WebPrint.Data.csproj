@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\IFetchRequest.cs" />
+    <Compile Include="Helper\NhibernateExtension.cs" />
     <Compile Include="ISessionFactoryProvider.cs" />
     <Compile Include="ISessionProvider.cs" />
     <Compile Include="IUnitOfWork.cs" />
@@ -89,7 +90,7 @@
     <Compile Include="Mapping\AddressBookMapping.cs" />
     <Compile Include="Mapping\UserGroupMapping.cs" />
     <Compile Include="Mapping\ViewOrderMapping.cs" />
-    <Compile Include="NHibernateJsonHelper.cs" />
+    <Compile Include="NhibernateJsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\FetchRequest.cs" />
     <Compile Include="Repositories\IRepository.cs" />

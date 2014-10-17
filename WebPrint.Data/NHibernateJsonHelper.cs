@@ -10,7 +10,7 @@ namespace WebPrint.Data
     /// json.net serialize nhibernate proxy issue
     /// Cannot serialize a Session while connected
     /// </summary>
-    public static class NHibernateJsonHelper
+    public static class NhibernateJsonHelper
     {
         private static readonly MemberInfo[] NHibernateProxyInterfaceMembers = typeof (INHibernateProxy).GetMembers();
 

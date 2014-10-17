@@ -7,6 +7,6 @@ namespace WebPrint.Model
         public virtual int Id { get; set; }
 
         // Handling versioning and concurrency
-        // protected virtual int Version { get; set; }
+        // protected virtual int NhibernateVersion { get; set; }
     }
 }

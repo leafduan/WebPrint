@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -78,7 +79,7 @@ namespace WebPrint.Test
             {
                 var repository = lifetime.Resolve<IRepository<User>>();
 
-                var list = repository.SqlQuery("select * from wp_user");
+                var list = repository.SqlQuery<ViewModel>("select user_name as Name, password, active, created_time as Date from wp_user").ToList();
 
                 Assert.IsTrue(list.Any());
             }
@@ -101,5 +102,8 @@ namespace WebPrint.Test
     public class ViewModel
     {
         public string Name { get; set; }
+        public string Password { get; set; }
+        public int Active { get; set; }
+        public DateTime Date { get; set; }
     }
 }

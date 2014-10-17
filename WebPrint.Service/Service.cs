@@ -184,9 +184,9 @@ namespace WebPrint.Service
             Repository.Delete(entity);
         }
 
-        public IEnumerable<object> SqlQuery(string sql)
+        public IEnumerable<TResult> SqlQuery<TResult>(string sql)
         {
-            return Repository.SqlQuery(sql);
+            return Repository.SqlQuery<TResult>(sql);
         }
 
         public int ExcuteSql(string sql)

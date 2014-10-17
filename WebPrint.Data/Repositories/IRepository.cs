@@ -32,7 +32,7 @@ namespace WebPrint.Data.Repositories
         void Delete(TEntity entity);
         void Delete(Expression<Func<TEntity, bool>> predicate = null);
 
-        IEnumerable<object> SqlQuery(string sql);
+        IEnumerable<TResult> SqlQuery<TResult>(string sql);
 
         int ExcuteSql(string sql);
     }

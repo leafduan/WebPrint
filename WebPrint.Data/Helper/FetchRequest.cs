@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using NHibernate.Linq;
-using WebPrint.Model.Helper;
 
 namespace WebPrint.Data.Helper
 {

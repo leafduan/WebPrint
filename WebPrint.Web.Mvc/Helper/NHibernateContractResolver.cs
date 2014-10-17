@@ -23,7 +23,7 @@ namespace WebPrint.Web.Mvc.Helper
 
         protected override JsonContract CreateContract(Type objectType)
         {
-            if (NHibernateJsonHelper.IsAssignableFromNHibernateProxy(objectType))
+            if (NhibernateJsonHelper.IsAssignableFromNHibernateProxy(objectType))
                 return base.CreateContract(objectType.BaseType);
 
             return base.CreateContract(objectType);
@@ -49,7 +49,7 @@ namespace WebPrint.Web.Mvc.Helper
             var members = base.GetSerializableMembers(objectType);
 
             members.RemoveAll(
-                 memberInfo => (NHibernateJsonHelper.IsMemberMarkedWithIgnoreAttribute(memberInfo, objectType)));
+                 memberInfo => (NhibernateJsonHelper.IsMemberMarkedWithIgnoreAttribute(memberInfo, objectType)));
 
             return members;
         }
@@ -63,7 +63,7 @@ namespace WebPrint.Web.Mvc.Helper
                 typeof (IEnumerable<>).IsAssignableFrom(property.PropertyType) && pinfo != null)
             {
                 property.ShouldSerialize =
-                    instance => NHibernateJsonHelper.IsInitialized(pinfo.GetValue(instance, null));
+                    instance => NhibernateJsonHelper.IsInitialized(pinfo.GetValue(instance, null));
             }
 
             return property;

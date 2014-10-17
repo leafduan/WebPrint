@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Linq.Expressions;
 using System.Reflection;
 
@@ -16,7 +13,8 @@ namespace WebPrint.Framework
 
         public DynamicPropertyAccessor(Type type, string propertyName)
             : this(type.GetProperty(propertyName))
-        { }
+        {
+        }
 
         public DynamicPropertyAccessor(PropertyInfo propertyInfo)
         {
@@ -28,7 +26,7 @@ namespace WebPrint.Framework
             // target: (object)((({TargetType})instance).{Property})
 
             // preparing parameter, object type
-            ParameterExpression instance = Expression.Parameter(typeof(object), "instance");
+            ParameterExpression instance = Expression.Parameter(typeof (object), "instance");
 
             // ({TargetType})instance
             Expression instanceCast = Expression.Convert(instance, propertyInfo.ReflectedType);
@@ -37,13 +35,18 @@ namespace WebPrint.Framework
             Expression propertyAccess = Expression.Property(instanceCast, propertyInfo);
 
             // (object)((({TargetType})instance).{Property})
-            UnaryExpression castPropertyValue = Expression.Convert(propertyAccess, typeof(object));
+            UnaryExpression castPropertyValue = Expression.Convert(propertyAccess, typeof (object));
 
             // Lambda expression
             Expression<Func<object, object>> lambda =
                 Expression.Lambda<Func<object, object>>(castPropertyValue, instance);
 
             return lambda.Compile();
+        }
+
+        public object GetValue(object o)
+        {
+            return this.getter(o);
         }
     }
 }
