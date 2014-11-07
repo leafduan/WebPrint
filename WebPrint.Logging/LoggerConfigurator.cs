@@ -3,7 +3,7 @@ using log4net.Config;
 
 namespace WebPrint.Logging
 {
-    public sealed class Configurator
+    public static class LoggerConfigurator
     {
         /// <summary>
         /// base on the application configuration settings

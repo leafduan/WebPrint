@@ -10,7 +10,7 @@ namespace WebPrint.Web.Mvc
         {
             var server = HttpContext.Current.Server;
             var config = server.MapPath(ConfigurationManager.AppSettings["log4net.config"]);
-            Configurator.Configure(config);
+            LoggerConfigurator.Configure(config);
         }
     }
 }

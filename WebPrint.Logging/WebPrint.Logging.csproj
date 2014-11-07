@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILogger.cs" />
-    <Compile Include="Configurator.cs" />
+    <Compile Include="LoggerConfigurator.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LoggerExtensions.cs" />
     <Compile Include="LoggerManager.cs" />

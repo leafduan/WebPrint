@@ -79,7 +79,7 @@ namespace WebPrint.Test
             {
                 var repository = lifetime.Resolve<IRepository<User>>();
 
-                var list = repository.SqlQuery<ViewModel>("select user_name as Name, password, active, created_time as Date from wp_user").ToList();
+                var list = repository.SqlQuery<ViewModel>("select user_name as Name, password, active, created_time as Date, null as More from wp_user").ToList();
 
                 Assert.IsTrue(list.Any());
             }
@@ -94,6 +94,8 @@ namespace WebPrint.Test
 
                 var list = repository.ExcuteSql("update wp_user set user_name = 'leaf' where user_name = 'leaf'");
 
+                Console.WriteLine(list);
+
                 Assert.IsTrue(list > 0);
             }
         }
@@ -105,5 +107,6 @@ namespace WebPrint.Test
         public string Password { get; set; }
         public int Active { get; set; }
         public DateTime Date { get; set; }
+        public string More { get; set; }
     }
 }

@@ -60,7 +60,7 @@ namespace WebPrint.Test
         public void TestLogger()
         {
 
-            Configurator.Configure();
+            LoggerConfigurator.Configure();
             var logger = LoggerManager.GetLogger(this.GetType());
 
             logger.Info("logger info");
