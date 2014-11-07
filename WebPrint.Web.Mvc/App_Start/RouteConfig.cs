@@ -12,6 +12,9 @@ namespace WebPrint.Web.Mvc
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Ignore the favicon, fast asp.net websites
+            routes.IgnoreRoute("favicon.ico");
+
             // 如果不设置defaults 则表示此值不能为空
             routes.MapRouteLowercase(
                 name: "Account",

@@ -1,31 +1,48 @@
-﻿<!DOCTYPE html>
+﻿@using StackExchange.Profiling
+@{
+    var profiler = MiniProfiler.Current;
+}
+<!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css"/>
-    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
-    @RenderSection("scripts", required: false)
-</head>
-<body>
-    <div id="header">
-        <h1>Web Print System</h1>
-    </div>
-    <div id="menu">
-        <h2>Menu</h2>
-    </div>
-    @if (IsSectionDefined("actions"))
-    {
-        <div id="actions">
-            @RenderSection("actions", required: false)
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        @using (profiler.Step("title"))
+        {
+            <title>@ViewBag.Title</title>
+        }
+        @using (profiler.Step("site.css"))
+        {
+            <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+        }
+        @using (profiler.Step("jQuery 1.9.1"))
+        {
+            <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
+        }
+        @using (profiler.Step("rendering head"))
+        {
+            @RenderSection("head", required: false)
+        }
+    </head>
+    <body>
+        <div id="header">
+            <h1>Web Print System</h1>
         </div>
-    }
-    <div id="main">
-        @RenderBody()
-    </div>
-    <div id="footer">
-        <p>
-            Site Footer - &copy; r-pac</p>
-    </div>
-</body>
+        <div id="menu">
+            <h2>Menu</h2>
+        </div>
+        @if (IsSectionDefined("actions"))
+        {
+            <div id="actions">
+                @RenderSection("actions", required: false)
+            </div>
+        }
+        <div id="main">
+            @RenderBody()
+        </div>
+        <div id="footer">
+            <p>
+                Site Footer - &copy; r-pac</p>
+        </div>
+        @MiniProfiler.RenderIncludes()
+    </body>
 </html>

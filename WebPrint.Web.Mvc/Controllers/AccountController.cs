@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Web.Mvc;
 using WebPrint.Logging;
 using WebPrint.Model;
 using WebPrint.Service;
-using WebPrint.Service.Helper;
 using WebPrint.Web.Core;
 using WebPrint.Web.Mvc.Models;
 using WebPrint.Web.Mvc.Helper;

@@ -9,6 +9,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using StackExchange.Profiling;
 using WebPrint.Web.Core;
 using WebPrint.Web.Mvc.Controllers;
 using WebPrint.Web.Mvc.Helper;
@@ -56,6 +57,22 @@ namespace WebPrint.Web.Mvc
 #endif
         }
 
+#if DEBUG
+        // http://miniprofiler.com/
+        protected void Application_BeginRequest()
+        {
+            if (Request.IsLocal)
+            {
+                MiniProfiler.Start();
+            }
+        }
+
+        protected void Application_EndRequest()
+        {
+            MiniProfiler.Stop();
+        }
+#endif
+
         protected void Application_Error(object sender, EventArgs e)
         {
             var exception = Server.GetLastError();
@@ -79,7 +96,8 @@ namespace WebPrint.Web.Mvc
             Server.ClearError();
 
             routeData.Values["model"] = model;
-            IController controller = DependencyResolver.Current.GetService<WarningController>();//new WarningController();
+            IController controller = DependencyResolver.Current.GetService<WarningController>();
+                //new WarningController();
             controller.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
 
             Response.TrySkipIisCustomErrors = true;
@@ -100,7 +118,7 @@ namespace WebPrint.Web.Mvc
                     .ForEach(p => permissions = permissions.Union(p).ToList());
                 * */
                 var permissions = id.Ticket.UserData.Split(',');
-                Context.User = new GenericPrincipal(id, permissions.ToArray()); 
+                Context.User = new GenericPrincipal(id, permissions.ToArray());
             }
         }
     }
