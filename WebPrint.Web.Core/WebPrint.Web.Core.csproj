@@ -58,7 +58,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BarTenderHelper.cs" />
     <Compile Include="CookieHelper.cs" />
     <Compile Include="HttpHandlerBase.cs" />
     <Compile Include="HttpRequestState.cs" />
@@ -76,10 +75,6 @@
     <Compile Include="WebUtil.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebPrint.Bartender\WebPrint.BarTender.csproj">
-      <Project>{AD122425-0F50-460D-A954-C6D3EF48A4C0}</Project>
-      <Name>WebPrint.BarTender</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebPrint.Framework\WebPrint.Framework.csproj">
       <Project>{FCAC9184-EF23-4177-B78F-7EFB835346F7}</Project>
       <Name>WebPrint.Framework</Name>
