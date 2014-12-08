@@ -58,12 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BarTenderApplication.cs" />
-    <Compile Include="BarTenderClientPrint.cs" />
-    <Compile Include="BarTenderManager.cs" />
-    <Compile Include="BarTenderPrint.cs" />
-    <Compile Include="BarTenderServerPrint.cs" />
-    <Compile Include="PrintersManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
