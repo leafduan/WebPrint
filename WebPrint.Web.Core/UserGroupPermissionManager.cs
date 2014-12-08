@@ -82,22 +82,11 @@ namespace WebPrint.Web.Core
     {
         CheckOrder = 1,
         CreateOrder = 2,
-        EditOrder = 3,
-        PrintOrder = 4,
-        CheckPringLog = 5,
-        ViewOrderDetail = 6,
-        Access = 7,
-        Master = 8,
-        StartProduction = 9,
-        EditOrderDetail = 10,
-        DownloadPI = 11
+        EditOrder = 3
     }
 
     public enum Group : int
     {
-        Administrators = 1,
-        AE = 8,
-        Factory = 13,
-        Customers = 16
+        Administrators = 1
     }
 }
