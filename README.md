@@ -15,7 +15,6 @@ WebPrint
 * One session per request pattern using autofac
 * Using log4net for logging
 * Using NPOI dealing with office excel 97~3003
-* Using bartender printing RFID tags
 * Using NHibernate Profiler profiling sql statement
 
 ### Architectural & Design Patterns:
@@ -35,17 +34,16 @@ WebPrint
 ### Technologies:
 * ASP.NET MVC 4 
 * ASP.NET Web API
-* NHibernate 3.3.1.4000
+* NHibernate 4.0
 * Autofac 3.1.5
 * log4net 1.2.13.0
 * NPOI 1.2.5
-* Bartender 9.30.2.0(optional)
 * Npgsql 2.1.3.0
 * NHibernate Profiler(optional)(http://www.hibernatingrhinos.com/products/nhprof)
 * MicroOLAP Database Designer for PostgreSQL(optional) 
 
 ### Requirements:
-* Visual Studio 2010
+* Visual Studio 2012
 * PostgreSQL 8.4.21 and up
 
 
