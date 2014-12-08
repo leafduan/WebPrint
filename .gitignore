@@ -5,7 +5,13 @@ WebPrint.Web.Forms/
 
 WebPrintStandard.vsmdi
 
+#################
+## For BarTender
+#################
+
 WebPrint.Bartender/
+
+WebPrint.Web.Core/BarTenderHelper.cs
 
 #################
 ## Eclipse
