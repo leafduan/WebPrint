@@ -15,6 +15,12 @@ namespace WebPrint.Web.Mvc
             // Ignore the favicon, fast asp.net websites
             routes.IgnoreRoute("favicon.ico");
 
+            routes.LowercaseUrls = true;
+
+            routes.MapMvcAttributeRoutes();
+
+            AreaRegistration.RegisterAllAreas();
+
             // 如果不设置defaults 则表示此值不能为空
             routes.MapRouteLowercase(
                 name: "Account",
