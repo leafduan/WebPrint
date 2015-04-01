@@ -142,7 +142,6 @@
     <Compile Include="Areas\Order\Controllers\GraphicOrderController.cs" />
     <Compile Include="Areas\Order\Controllers\OrderController.cs" />
     <Compile Include="Areas\Order\Controllers\RfidOrderController.cs" />
-    <Compile Include="Areas\Order\OrderAreaRegistration.cs" />
     <Compile Include="Areas\Set\SetAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

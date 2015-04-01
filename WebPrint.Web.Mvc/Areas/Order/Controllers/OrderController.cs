@@ -7,6 +7,7 @@ using WebPrint.Web.Mvc.Filters;
 
 namespace WebPrint.Web.Mvc.Areas.Order.Controllers
 {
+    [RouteArea("order")]
     [UserAuthorizeAttribute(Roles = "CheckOrder")]
     public class OrderController : Controller
     {
@@ -25,6 +26,7 @@ namespace WebPrint.Web.Mvc.Areas.Order.Controllers
         //
         // GET: /Order/Order/
         //[UserAuthorize(Roles = "CheckOrder")]
+        [Route("check")]
         public ActionResult Check(string jno, string po, string type, string status)
         {
             ViewBag.Jno = jno;

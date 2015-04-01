@@ -8,6 +8,8 @@ using WebPrint.Web.Mvc.Helper;
 
 namespace WebPrint.Web.Mvc.Areas.Order.Controllers
 {
+    [RouteArea("order")]
+    [RoutePrefix("rfid")]
     public class RfidOrderController : Controller
     {
         private readonly Lazy<IService<Model.Order>> lazyService;
@@ -23,6 +25,7 @@ namespace WebPrint.Web.Mvc.Areas.Order.Controllers
 
         //
         // GET: /Order/RfidOrder/
+        [Route("{jno}")]
         public ActionResult Details(string jno = null)
         {
             var orderId = jno.AsOrderId();
@@ -44,6 +47,7 @@ namespace WebPrint.Web.Mvc.Areas.Order.Controllers
         }
 
         //[UserAuthorize(Roles = "CreateOrder")]
+        [Route]
         public ActionResult Create()
         {
             return View();
