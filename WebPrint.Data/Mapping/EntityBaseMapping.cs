@@ -22,6 +22,14 @@ namespace WebPrint.Data.Mapping
                     gm => gm.Params(new {sequence = string.Format("{0}_id_seq", tableName)}));
             });
 
+            Version(x=>x.NhVersion, m =>
+            {
+                m.Column("nh_version");
+                m.UnsavedValue(0);
+            });
+
+            DynamicUpdate(true);
+
             /*
             Id(x => x.Id, m =>
             {

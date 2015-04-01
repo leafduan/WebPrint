@@ -4,9 +4,9 @@ namespace WebPrint.Model
     // can set Id as TId, generic
     public class EntityBase
     {
-        public virtual int Id { get; set; }
+        public virtual int Id { get; protected set; }
 
         // Handling versioning and concurrency
-        // protected virtual int NhibernateVersion { get; set; }
+        public virtual int NhVersion { get; protected set; }
     }
 }
