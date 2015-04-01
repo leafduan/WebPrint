@@ -1,15 +1,22 @@
-﻿namespace WebPrint.Web.Core
+﻿using WebPrint.Framework;
+
+namespace WebPrint.Web.Core
 {
     public class PhantomjsHelper
     {
-        public static void WebPageToImge(string startFile, string args, out string standardOutput, out string standardError)
+        // 默认 5 分钟
+        private const int Timeout = 5*60*1000;
+
+        public static void WebPageToImge(string startFile, string args, out string standardOutput,
+            out string standardError)
         {
-            ProcessHelper.Render(startFile, args, out standardOutput, out standardError);
+            ProcessHelper.Process(startFile, args, Timeout, out standardOutput, out standardError);
         }
 
-        public static void WebPageToPdf(string startFile, string args, out string standardOutput, out string standardError)
+        public static void WebPageToPdf(string startFile, string args, out string standardOutput,
+            out string standardError)
         {
-            ProcessHelper.Render(startFile, args, out standardOutput, out standardError);
+            ProcessHelper.Process(startFile, args, Timeout, out standardOutput, out standardError);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using System.Xml;
+using System.Xml.Linq;
 using log4net.Config;
 
 namespace WebPrint.Logging
@@ -19,6 +21,13 @@ namespace WebPrint.Logging
         public static void Configure(string configFileName)
         {
             XmlConfigurator.ConfigureAndWatch(new FileInfo(configFileName));
+        }
+		
+		public static void Configure(XElement element)
+        {
+            var doc = new XmlDocument();
+            doc.Load(element.CreateReader());
+            XmlConfigurator.Configure(doc.DocumentElement);
         }
     }
 }
