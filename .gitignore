@@ -146,8 +146,8 @@ publish/
 # NuGet Packages Directory
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
 #packages/
+packages/Bartender.9.30.2.2725/
 packages/*
-Packages/Bartender.9.30.2.2725
 !packages/repositories.config
 
 # Windows Azure Build Output
