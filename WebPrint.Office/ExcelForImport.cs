@@ -5,6 +5,7 @@ using System.IO;
 using System.Data;
 using NPOI.SS.UserModel;
 using NPOI.HSSF.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace WebPrint.Office
 {
@@ -90,7 +91,7 @@ namespace WebPrint.Office
             object rValue = string.Empty;
             switch (cell.CellType)
             {
-                case  CellType.NUMERIC:
+                case  CellType.Numeric:
                     /*
                     if (NPOI.HSSF.UserModel.HSSFDateUtil.IsCellDateFormatted(cell))
                         rValue = cell.DateCellValue.ToString("yyyy-MM-dd HH:mm:ss");
@@ -99,16 +100,16 @@ namespace WebPrint.Office
                      * */
                     rValue = cell.ToString();
                     break;
-                case CellType.STRING:
+                case CellType.String:
                     rValue = cell.StringCellValue;
                     break;
-                case CellType.BOOLEAN:
+                case CellType.Boolean:
                     rValue = cell.BooleanCellValue;
                     break;
-                case CellType.FORMULA: //if HSSFFormulaEvaluator.EvaluateInCell(ICell) CellType.FORMULA will never happen
+                case CellType.Formula: //if HSSFFormulaEvaluator.EvaluateInCell(ICell) CellType.FORMULA will never happen
                     rValue = "=" + cell.CellFormula;
                     break;
-                case CellType.BLANK:
+                case CellType.Blank:
                 default:
                     break;
             }
@@ -128,7 +129,14 @@ namespace WebPrint.Office
         {
             using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
-                return new HSSFWorkbook(file);
+                try
+                {
+                    return new XSSFWorkbook(file);
+                }
+                catch (Exception ex)
+                {
+                    return new HSSFWorkbook(file);
+                }
             }
         }
 

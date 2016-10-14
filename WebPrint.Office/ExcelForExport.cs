@@ -58,15 +58,15 @@ namespace WebPrint.Office
         {
             //头部样式
             ICellStyle hStyle = workBook.CreateCellStyle();
-            hStyle.FillForegroundColor = HSSFColor.YELLOW.index;
-            hStyle.FillPattern = FillPatternType.BIG_SPOTS;
-            hStyle.FillBackgroundColor = HSSFColor.YELLOW.index;
-            hStyle.Alignment = HorizontalAlignment.CENTER;
-            hStyle.VerticalAlignment = VerticalAlignment.CENTER;
-            hStyle.BorderBottom = hStyle.BorderLeft = hStyle.BorderRight = hStyle.BorderTop = BorderStyle.MEDIUM;
-            hStyle.BottomBorderColor = hStyle.LeftBorderColor = hStyle.RightBorderColor = hStyle.TopBorderColor = HSSFColor.BLACK.index;
+            hStyle.FillForegroundColor = HSSFColor.Yellow.Index;
+            hStyle.FillPattern = FillPattern.BigSpots;
+            hStyle.FillBackgroundColor = HSSFColor.Yellow.Index;
+            hStyle.Alignment = HorizontalAlignment.Center;
+            hStyle.VerticalAlignment = VerticalAlignment.Center;
+            hStyle.BorderBottom = hStyle.BorderLeft = hStyle.BorderRight = hStyle.BorderTop = BorderStyle.Medium;
+            hStyle.BottomBorderColor = hStyle.LeftBorderColor = hStyle.RightBorderColor = hStyle.TopBorderColor = HSSFColor.Black.Index;
             IFont hFont = workBook.CreateFont();
-            hFont.Boldweight = (short)FontBoldWeight.BOLD;
+            hFont.Boldweight = (short)FontBoldWeight.Bold;
             hStyle.SetFont(hFont);
 
             int RecordCounts = dt.Rows.Count;

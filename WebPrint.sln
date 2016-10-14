@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{B5929DA5-F0B2-4B3A-B200-73257361AF7F}"
 	ProjectSection(SolutionItems) = preProject
 		packages\repositories.config = packages\repositories.config
@@ -19,8 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 		WebPrintStandard.vsmdi = WebPrintStandard.vsmdi
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Web.Forms", "WebPrint.Web.Forms\WebPrint.Web.Forms.csproj", "{11171CE3-6C41-4542-B1CA-F8279AB76E8B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Model", "WebPrint.Model\WebPrint.Model.csproj", "{682DE556-3A35-41B6-940F-29E8C430FEC8}"
 EndProject
@@ -42,21 +42,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.Logging", "WebPrin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.DbService", "WebPrint.DbService\WebPrint.DbService.csproj", "{569B5B35-948B-4939-BB99-450D3D52F793}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPrint.BarTender", "WebPrint.Bartender\WebPrint.BarTender.csproj", "{AD122425-0F50-460D-A954-C6D3EF48A4C0}"
-EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = WebPrintStandard.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{11171CE3-6C41-4542-B1CA-F8279AB76E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11171CE3-6C41-4542-B1CA-F8279AB76E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11171CE3-6C41-4542-B1CA-F8279AB76E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11171CE3-6C41-4542-B1CA-F8279AB76E8B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{682DE556-3A35-41B6-940F-29E8C430FEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{682DE556-3A35-41B6-940F-29E8C430FEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{682DE556-3A35-41B6-940F-29E8C430FEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -97,12 +88,11 @@ Global
 		{569B5B35-948B-4939-BB99-450D3D52F793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{569B5B35-948B-4939-BB99-450D3D52F793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{569B5B35-948B-4939-BB99-450D3D52F793}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD122425-0F50-460D-A954-C6D3EF48A4C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD122425-0F50-460D-A954-C6D3EF48A4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD122425-0F50-460D-A954-C6D3EF48A4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD122425-0F50-460D-A954-C6D3EF48A4C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = WebPrintStandard.vsmdi
 	EndGlobalSection
 EndGlobal
