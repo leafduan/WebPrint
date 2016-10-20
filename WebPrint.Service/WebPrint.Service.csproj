@@ -48,7 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbService.cs" />
+    <Compile Include="DbServiceExtensions.cs" />
     <Compile Include="Helper\FetchRequestExtensions.cs" />
+    <Compile Include="IDbService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />
@@ -58,6 +61,10 @@
     <ProjectReference Include="..\WebPrint.Data\WebPrint.Data.csproj">
       <Project>{88CB4689-AF82-4798-A642-9E974FCA2D5D}</Project>
       <Name>WebPrint.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebPrint.DbService\WebPrint.DbService.csproj">
+      <Project>{569B5B35-948B-4939-BB99-450D3D52F793}</Project>
+      <Name>WebPrint.DbService</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebPrint.Model\WebPrint.Model.csproj">
       <Project>{682DE556-3A35-41B6-940F-29E8C430FEC8}</Project>

@@ -13,6 +13,7 @@ namespace WebPrint.Test
             builder.RegisterModule(new NHibernateModuleTest());
             builder.RegisterModule(new RepositoriesModuleTest());
             builder.RegisterModule(new ServicesModule());
+            builder.RegisterModule(new DbServiceModule());
 
             Container = builder.Build();
         }
