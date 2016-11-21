@@ -8,5 +8,6 @@ namespace WebPrint.Data
         // void Start();
         // void Commit();
         // void Rollback();
+        ISessionProvider SessionProvider { get; }
     }
 }

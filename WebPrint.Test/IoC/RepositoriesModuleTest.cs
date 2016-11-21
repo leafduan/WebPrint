@@ -8,13 +8,17 @@ namespace WebPrint.Test
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterGeneric(typeof (Repository<>))
-                   .As(typeof (IRepository<>))
-                   .InstancePerLifetimeScope();
+            builder.RegisterGeneric(typeof(Repository<>))
+                .As(typeof(IRepository<>))
+                .InstancePerLifetimeScope();
 
-            builder.Register(c => new UpcRepository(c.Resolve<ISessionProvider>()))
-                   .As<IUpcRepository>()
-                   .InstancePerLifetimeScope();
+            builder.Register(c => new UpcRepository(c.Resolve<IUnitOfWork>()))
+                .As<IUpcRepository>()
+                .InstancePerLifetimeScope();
+
+            builder.Register(c => new RepositoryProvider(c.Resolve<IUnitOfWork>()))
+                .As<IRepositoryProvider>()
+                .InstancePerLifetimeScope();
         }
     }
 }

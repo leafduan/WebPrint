@@ -30,16 +30,23 @@ namespace WebPrint.Data.Repositories
          * 应该单独出一个UnitOfWork，独立于各repository，然后所有的事务操作在其中完成
          * */
 
-        protected ISession Session
-        {
-            get { return sessionProvider.Session; }
-        }
+        //protected ISession Session
+        //{
+        //    get { return sessionProvider.Session; }
+        //}
 
-        private readonly ISessionProvider sessionProvider;
+        protected ISession Session { get; private set; }
 
-        public Repository(ISessionProvider sessionProvider)
+        //private readonly ISessionProvider sessionProvider;
+
+        //public Repository(ISessionProvider sessionProvider)
+        //{
+        //    this.sessionProvider = sessionProvider;
+        //}
+
+        public Repository(IUnitOfWork unitOfWork)
         {
-            this.sessionProvider = sessionProvider;
+            Session = unitOfWork.SessionProvider.Session;
         }
 
         public object Save(TEntity entity)

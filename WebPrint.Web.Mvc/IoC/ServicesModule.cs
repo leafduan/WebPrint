@@ -10,12 +10,12 @@ namespace WebPrint.Web.Mvc.IoC
         {
             builder.RegisterGeneric(typeof (Service<>))
                    .As(typeof (IService<>))
-                   .InstancePerHttpRequest();
+                   .InstancePerRequest();
 
             /*
             builder.Register(c => new Service<User>(c.Resolve<IRepository<User>>(), c.Resolve<IUnitOfWork>()))
                    .As(typeof (IService<User>))
-                   .InstancePerHttpRequest();
+                   .InstancePerRequest();
              * */
         }
     }

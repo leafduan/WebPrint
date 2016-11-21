@@ -11,16 +11,19 @@ namespace WebPrint.Data
     {
         private readonly ISession session;
         private readonly ITransaction transaction;
-        private bool isDisposed;
+        private bool wasDisposed;
         private bool wasCommitted;
 
         public UnitOfWork(ISessionProvider sessionProvider)
         {
-            this.session = sessionProvider.Session;
+            SessionProvider = sessionProvider;
+            session = sessionProvider.Session;
             transaction = session.BeginTransaction();
-            isDisposed = false;
+            wasDisposed = false;
             wasCommitted = false;
         }
+
+        public ISessionProvider SessionProvider { get; private set; }
 
         /*
         public void Start()
@@ -55,7 +58,7 @@ namespace WebPrint.Data
 
         public void Close()
         {
-            if (isDisposed) return;
+            if (wasDisposed) return;
 
             try
             {
@@ -69,7 +72,7 @@ namespace WebPrint.Data
             finally
             {
                 session.Close();
-                isDisposed = true;
+                wasDisposed = true;
             }
         }
 

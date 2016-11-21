@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionManager.cs" />
-    <Compile Include="ConnectionManagerBase.cs" />
     <Compile Include="DbOperator.cs" />
     <Compile Include="DbOperatorFactory.cs" />
     <Compile Include="DbUnitOfWork.cs" />

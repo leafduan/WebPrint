@@ -94,6 +94,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RepositoryProviderTest.cs" />
     <Compile Include="DapperTest.cs" />
     <Compile Include="IoC\DbServiceModule.cs" />
     <Compile Include="IoC\IocConfig.cs" />
@@ -109,7 +110,9 @@
     <Compile Include="UserModulTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

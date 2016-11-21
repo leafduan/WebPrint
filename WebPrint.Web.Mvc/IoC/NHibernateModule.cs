@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Autofac.Integration.Mvc;
 using WebPrint.Data;
 
 namespace WebPrint.Web.Mvc.IoC
@@ -16,14 +15,14 @@ namespace WebPrint.Web.Mvc.IoC
             /* should be instance per http request to ensure one session per request model */
             builder.Register(c => new SessionProvider(c.Resolve<ISessionFactoryProvider>()))
                    .As<ISessionProvider>()
-                   .InstancePerHttpRequest();
+                   .InstancePerRequest();
 
             /* should be instance per http request to ensure one session per request model */
             builder.Register(c => new UnitOfWork(c.Resolve<ISessionProvider>()))
                    .As<IUnitOfWork>()
                    /* must be, to commit transaction, to close session, or will lost data and occupied db connection */
                    //.OnRelease(uow => uow.Close()) // 如果有继承IDispose接口 则可以不用显示调用
-                   .InstancePerHttpRequest();
+                   .InstancePerRequest();
         }
     }
 }

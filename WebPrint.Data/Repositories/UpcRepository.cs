@@ -4,8 +4,8 @@ namespace WebPrint.Data.Repositories
 {
     public class UpcRepository : Repository<Upc>, IUpcRepository
     {
-        public UpcRepository(ISessionProvider sessionProvider)
-            : base(sessionProvider)
+        public UpcRepository(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
         }
     }

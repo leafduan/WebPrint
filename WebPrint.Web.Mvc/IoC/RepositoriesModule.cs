@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Autofac.Integration.Mvc;
 using WebPrint.Data.Repositories;
 
 namespace WebPrint.Web.Mvc.IoC
@@ -10,7 +9,7 @@ namespace WebPrint.Web.Mvc.IoC
         {
             builder.RegisterGeneric(typeof (Repository<>))
                    .As(typeof (IRepository<>))
-                   .InstancePerHttpRequest();
+                   .InstancePerRequest();
 
             /* better practice than below */
             /*
