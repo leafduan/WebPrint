@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Autofac.Integration.Mvc;
 using WebPrint.Service;
 
 namespace WebPrint.Web.Mvc.IoC
@@ -8,15 +7,9 @@ namespace WebPrint.Web.Mvc.IoC
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterGeneric(typeof (Service<>))
-                   .As(typeof (IService<>))
-                   .InstancePerRequest();
-
-            /*
-            builder.Register(c => new Service<User>(c.Resolve<IRepository<User>>(), c.Resolve<IUnitOfWork>()))
-                   .As(typeof (IService<User>))
-                   .InstancePerRequest();
-             * */
+            builder.RegisterGeneric(typeof(Service<>))
+                .As(typeof(IService<>))
+                .InstancePerRequest();
         }
     }
 }

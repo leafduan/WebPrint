@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using NHibernate;
 using WebPrint.Data;
 using WebPrint.Data.Repositories;
 
@@ -12,7 +13,7 @@ namespace WebPrint.Test
                 .As(typeof(IRepository<>))
                 .InstancePerLifetimeScope();
 
-            builder.Register(c => new UpcRepository(c.Resolve<IUnitOfWork>()))
+            builder.Register(c => new UpcRepository(c.Resolve<ISession>()))
                 .As<IUpcRepository>()
                 .InstancePerLifetimeScope();
 

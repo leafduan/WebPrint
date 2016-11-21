@@ -54,10 +54,8 @@
     <Compile Include="IDbService.cs" />
     <Compile Include="IOrderService.cs" />
     <Compile Include="IService.cs" />
-    <Compile Include="OrderService2.cs" />
     <Compile Include="OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service2.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="ServiceExtension.cs" />
   </ItemGroup>

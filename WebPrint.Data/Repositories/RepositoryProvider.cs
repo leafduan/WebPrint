@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using WebPrint.Model;
 
 namespace WebPrint.Data.Repositories
-{    
+{
     // instance per request
     public class RepositoryProvider : IRepositoryProvider
     {
@@ -26,7 +25,8 @@ namespace WebPrint.Data.Repositories
             }
             else
             {
-                var repository = Activator.CreateInstance(typeof(Repository<TEntity>), unitOfWork) as IRepository<TEntity>;
+                //var repository = Activator.CreateInstance(typeof(Repository<TEntity>), unitOfWork) as IRepository<TEntity>;
+                var repository = new Repository<TEntity>(unitOfWork.SessionProvider.Session);
                 repositories.Add(className, repository);
 
                 return repository;

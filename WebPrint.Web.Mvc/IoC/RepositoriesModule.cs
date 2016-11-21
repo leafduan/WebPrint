@@ -7,22 +7,14 @@ namespace WebPrint.Web.Mvc.IoC
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterGeneric(typeof (Repository<>))
-                   .As(typeof (IRepository<>))
-                   .InstancePerRequest();
+            //builder.RegisterGeneric(typeof (Repository<>))
+            //       .As(typeof (IRepository<>))
+            //       .InstancePerRequest();
 
-            /* better practice than below */
-            /*
-            builder.Register(c => new UpcRepository(c.Resolve<ISessionProvider>()))
-                   .As<IUpcRepository>()
-                   .InstancePerHttpRequest();
-             * */
 
-            /*
-            builder.RegisterType<UpcRepository>()
-                   .As<IUpcRepository>()
-                   .InstancePerHttpRequest();
-             * */
+            builder.RegisterGeneric(typeof(RepositoryProvider))
+                .As(typeof(IRepositoryProvider))
+                .InstancePerRequest();
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using WebPrint.Data;
 using WebPrint.Data.Repositories;
 using WebPrint.Model;
 
@@ -14,20 +13,18 @@ namespace WebPrint.Service
     /// <typeparam name="TEntity">EntityBase</typeparam>
     public class Service<TEntity> : IService<TEntity> where TEntity : EntityBase
     {
-        protected IRepository<TEntity> Repository { get; set; }
-        protected IUnitOfWork UnitOfWork { get; private set; }
+        private IRepository<TEntity> repository;
 
-        public Service(IRepository<TEntity> repository, IUnitOfWork unitOfWork)
+        public Service(IRepositoryProvider repositoryProvider)
         {
-            this.Repository = repository;
-            this.UnitOfWork = unitOfWork;
+            repository = repositoryProvider.GetRepository<TEntity>();
         }
 
         #region IService<TEntity> 成员
 
         public int Save(TEntity entity)
         {
-            return (int) (Repository.Save(entity) ?? 0);
+            return (int) (repository.Save(entity) ?? 0);
         }
 
         public bool Exists(Expression<Func<TEntity, bool>> predicate)
@@ -38,31 +35,31 @@ namespace WebPrint.Service
                        .FirstOrDefault() != null;
              * */
 
-            return Repository
+            return repository
                 .Query(predicate)
                 .Any();
         }
 
         public IQueryable<TEntity> Queryable(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return Repository.Query(predicate);
+            return repository.Query(predicate);
         }
 
         public TEntity Get(int id)
         {
-            return Repository.Get(id);
+            return repository.Get(id);
         }
 
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
-            return Repository
+            return repository
                 .Query(predicate)
                 .SingleOrDefault();
         }
 
         public int Count(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return Repository
+            return repository
                 .Query(predicate)
                 .Count();
         }
@@ -165,33 +162,33 @@ namespace WebPrint.Service
 
         public TEntity Load(int id)
         {
-            return Repository.Load(id);
+            return repository.Load(id);
         }
 
         public void Update(Action<TEntity> action, Expression<Func<TEntity, bool>> predicate = null)
         {
-            Repository.Update(action, predicate);
+            repository.Update(action, predicate);
         }
 
         public void Delete(Expression<Func<TEntity, bool>> predicate = null)
         {
-            Repository.Delete(predicate);
+            repository.Delete(predicate);
         }
 
         public void Delete(int id)
         {
-            var entity = Repository.Load(id);
-            Repository.Delete(entity);
+            var entity = repository.Load(id);
+            repository.Delete(entity);
         }
 
         public IEnumerable<TResult> SqlQuery<TResult>(string sql)
         {
-            return Repository.SqlQuery<TResult>(sql);
+            return repository.SqlQuery<TResult>(sql);
         }
 
         public int ExcuteSql(string sql)
         {
-            return Repository.ExcuteSql(sql);
+            return repository.ExcuteSql(sql);
         }
 
         #endregion
